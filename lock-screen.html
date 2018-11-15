@@ -1,0 +1,681 @@
+<!-- - var menuBorder = true-->
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <meta name="description" content="AUDIT RING">
+  <meta name="keywords" content="admin template, stack admin template, dashboard template, flat admin template, responsive admin template, web app">
+  <meta name="author" content="PIXINVENT">
+  <title>Audit Ring - Login</title>
+  
+  <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon-32.png">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i"
+  rel="stylesheet">
+  <!-- BEGIN VENDOR CSS-->
+  <link rel="stylesheet" type="text/css" href="../../../app-assets/css/vendors.css">
+  <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/forms/icheck/icheck.css">
+  <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/forms/icheck/custom.css">
+  <!-- END VENDOR CSS-->
+  <!-- BEGIN STACK CSS-->
+  <link rel="stylesheet" type="text/css" href="../../../app-assets/css/app.css">
+  <!-- END STACK CSS-->
+  <!-- BEGIN Page Level CSS-->
+  <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
+  <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/login-register.css">
+  <!-- END Page Level CSS-->
+  <!-- BEGIN Custom CSS-->
+  <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+  <style>
+    .field-icon {
+      float: right;
+      margin-left: -25px;
+      margin-top: -15px;
+      position: relative;
+      z-index: 2;
+      }
+      .fa-eye, .fa-eye-slash {
+        margin-right: 5px;
+      }
+      .brand-text{
+        font-weight: bold;
+      }
+      #lgn-text{
+        font-size: 19px;
+      }
+      #sub-btn{
+        background-color: #226288;
+        color: #fff;
+        width: 50px;
+        border-radius: 50%;
+        border: none;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      #forgot-pw{
+        color: #2e405c;
+      }
+
+      #password-field {
+        padding-left: 10px !important;
+        padding-right: 20px !important;
+        position: relative;
+        top: 15px;
+      }
+
+      .card-header{
+        background: #F5F7FA !important;
+      }
+
+    .clock {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        color: #24a1ec;
+        font-size: 60px;
+        font-family: Orbitron;
+        letter-spacing: 7px;
+        width: 500px;
+        text-align: center;
+    }
+      .card-body {
+            padding: 0;
+        }
+
+        .u-name {
+            text-align: center;
+            margin-top: 15px;
+            background-color: #226288;
+            color: #fff;
+            height: 38px;
+            padding: 10px 0px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            width: 200px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input#password-field {
+            background: #226288;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .form-control{
+          width: 200px !important;
+        }
+
+        span.fa.fa-fw.field-icon.toggle-password.fa-eye-slash {
+            color: #fff;
+        }
+
+        span.fa.fa-fw.field-icon.toggle-password.fa-eye {
+            color: #fff;
+        }
+
+      #slogan{
+        color:#2AA2DE; font-size: 17px;
+      }
+
+      .flex-container{
+        display: flex;
+        justify-content: space-between;
+      }
+  </style>
+  <!-- END Custom CSS-->
+</head>
+<body class="vertical-layout vertical-menu 1-column  bg-full-screen-image menu-expanded blank-page blank-page"
+data-open="click" data-menu="vertical-menu" data-col="1-column">
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+  <div class="app-content content">
+    <div class="content-wrapper">
+      <div class="content-header row">
+      </div>
+      <div class="content-body">
+        <section class="flexbox-container">
+          <div class="col-12 d-flex align-items-center justify-content-center">
+            <div class="col-md-4 col-10 p-0">
+              <div class="px-1 py-1 m-0">
+                <div class="card-header border-0">
+                  <div class="brand-container">
+                      <div class="card-title text-center">
+                          <img class="brand-logo" alt="ring admin logo" src="../../../app-assets/images/logo/stack-80x80.png">
+                          <h2 class="brand-text">Audit Ring</h2>
+                        </div>
+                        <p class="text-center font-small-3 mx-2 my-1" >
+                          <span id="slogan">Encirle. Manage. Discover. Ensure.</span>
+                        </p>
+                  </div>
+                  <div id="MyClockDisplay" class="clock"></div>
+                  <br>
+                  <div class="client-img">
+                      
+                  </div>
+                <div class="card-content">
+                  
+                  <div class="card-body">
+                    <form class="form-horizontal" action="index.html" novalidate>
+                      <div class="flex-container">
+                          <div class="u-name">
+                              <p>Mansoor</p>
+                          </div>
+
+                          <fieldset class="form-group has-icon-left">
+                            <input id="password-field" type="password" class="form-control" name="password" required>
+                            <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                          </fieldset>
+                          <button type="submit" class="btn btn-outline-primary btn-block" id="sub-btn">></button>
+                      </div>
+                      
+                    </form>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    function showTime(){
+    var date = new Date();
+    var h = date.getHours(); // 0 - 23
+    var m = date.getMinutes(); // 0 - 59
+    var s = date.getSeconds(); // 0 - 59
+    var session = "AM";
+    
+    if(h == 0){
+        h = 12;
+    }
+    
+    if(h > 12){
+        h = h - 12;
+        session = "PM";
+    }
+    
+    h = (h < 10) ? "0" + h : h;
+    m = (m < 10) ? "0" + m : m;
+    s = (s < 10) ? "0" + s : s;
+    
+    var time = h + ":" + m + ":" + s + " " + session;
+    document.getElementById("MyClockDisplay").innerText = time;
+    document.getElementById("MyClockDisplay").textContent = time;
+    
+    setTimeout(showTime, 1000);
+    
+}
+
+showTime();
+
+
+    $(".toggle-password").click(function() {
+
+          $(this).toggleClass("fa-eye fa-eye-slash");
+          var input = $($(this).attr("toggle"));
+          if (input.attr("type") == "password") {
+            input.attr("type", "text");
+          } else {
+            input.attr("type", "password");
+          }
+      });
+
+
+  const $elt = (selector)=>document.querySelector(selector);
+const $elts = (selector)=>document.querySelectorAll(selector);
+
+namespaces = {
+  "class":"http://meta.dnb.com/class/",
+  "name":"http://meta.dnb.com/name/",
+  "color":"http://meta.dnb.com/color/",
+  "person":"http://meta.dnb.com/person/",
+  "personalName":"http://meta.dnb.com/personalName/",
+  "property":"http://meta.dnb.com/property/",
+  "shape":"http://meta.dnb.com/shape/",
+  "gender":"http://meta.dnb.com/property/",
+  "xsd":"http://www.w3.org/2001/XMLSchema#",
+  "owl":"http://www.w3.org/2002/07/owl#",
+  "cardinality":"http://meta.dnb.com/cardinality/"
+};
+
+
+class NS {
+    constructor(namespaces){
+        this.ns = namespaces;
+       
+    }
+    ciri(curie){
+        var qnames = curie.split(/:/);
+        return `${this.ns[qnames[0]]}${qnames[1]}`;
+    }
+    curie(iri){
+        var curieTerm = null
+        var separator = iri.match("#")?"#":"/";
+        var tokens = iri.split(separator);
+        var term = tokens[tokens.length - 1];
+        tokens.pop();
+        var namespace = (separator==="#")?(tokens.join("/"))+"#":(tokens.join("/"))+"/";
+        console.log(separator==="#",namespace,term);
+        var resultArr = Object.keys(this.ns).filter((prefix)=>this.ns[prefix] === namespace);
+        
+        if (resultArr.length == 1){curieTerm = `${resultArr[0]}:${term}`};
+        return curieTerm;
+    }
+    prologTurtle(){
+        return Object.keys(this.ns).map((prefix)=>`@prefix ${prefix}: <${this.ns[prefix]}>.`).join("\n")+("\n");
+    }
+    prologSparql(){
+        return Object.keys(this.ns).map((prefix)=>`prefix ${prefix}: <${this.ns[prefix]}>`).join("\n")+("\n");
+    }
+    prolog(mode="turtle"){
+        switch(mode){}
+        if (mode === "turtle"){
+            return this.prologTurtle(this.ns)
+            }
+        if (mode === "sparql"){
+            return this.prologSparql(this.ns)
+            }
+        if (mode === "json"){
+            return JSON.stringify(this.ns)
+            }    
+        }
+    }
+var ns = new NS(namespaces);
+
+class App {
+  constructor(){
+    this.treeview = treeview;
+    this.mode = mode;
+    this.context = null;
+  }
+  oncontextchanged(evt){
+    this.context = evt.context;
+    console.log("Data = ",evt.data);
+    $elt('#display').innerHTML  = this.displayRender(evt.data);
+    //tinymce.init({ selector:'textarea.tinymce' });
+
+    $elt('#headerLabel').innerHTML  = this.titleRender(evt.data);
+  }
+  
+  onmodeselect(evt){
+     this.activeMode = evt.activeMode;
+     if (this.context != null){
+         treeview.selectNode(this.context);
+        }
+     console.log(evt.activeMode);
+  }
+  
+  displayRender(obj){
+    switch(this.activeMode){
+      case "view":{ return `
+<div class="card"> 
+  ${this.displayCardHeader(obj)}
+<div class="cardNamespace">${ns.ciri(obj['@id'])} </div>
+<div class="cardDescription">${eval('`'+obj.description+'`')}</div>
+${this.renderProperties(obj)}
+${this.renderChildren(obj)}
+</div>
+`;break;}
+      case "edit":{ return `
+<div class="card">
+  ${this.displayCardHeader(obj)}
+<div>This is the editing page.</div>
+</div>
+`}        
+      case "wiki":{ return `
+<div class="card">
+  ${this.displayCardHeader(obj)}
+<div><textarea class="tinymce"></textarea></div>
+</div>
+`}        
+    }
+}
+displayCardHeader(obj){
+   return `<div class="cardType" onclick="treeview.selectNode('${obj.parent}');return false">&lt;${obj.parentLabel}&gt;</div>
+<div class="cardTitleBar">
+<div class="cardTitle"><img src="${obj.icon?obj.icon:`https://s3-us-west-2.amazonaws.com/s.cdpn.io/620300/Item.png`}" class="imageIconLarge" align="left"/> ${obj.label} </div>
+<div class="cardMode">${this.activeMode}</div>
+</div>`
+}  
+renderProperties(obj){
+  if (obj.properties&&obj.properties.length>0){return  `
+<div class="properties">
+    <div class="propertiesLabel">Properties</div>
+    ${obj.properties.map((prop)=>`<div class="property">
+   <span class="propertyLabel" onclick="treeview.selectNode('${prop['@ref']}');return false">${prop.label}</span> ${prop.hasOwnProperty("range")?` [<span class="rangeLabel" onclick="treeview.selectNode('${prop.range}');return false">${prop.rangeLabel}</span>]`:` ${(prop.datatype === "IRI")?` &#8658; <span class="rangeLabel" onclick="treeview.selectNode('${prop.valueType}');return false">${prop.valueLabel}</span>`:` = <span class="value">"${prop.value}"</span>`}
+`}`).join('\n')}</div>`}
+ else {return `<div class="emptyList"><span class="emptyListLabel">${obj.label}</span> has no properties.</div>` }
+}
+renderChildren(obj){
+  if ((Array.isArray(obj.children))&&obj.children.length>0){return  `
+<div class="children">
+    <div class="propertiesLabel">Children</div>
+    ${obj.children.map((child)=>`<div class="property">
+   <span class="rangeLabel" onclick="treeview.selectNode('${child['@id']}');return false">${child.label}</span>
+</div>`).join('\n')} 
+` }
+ else {return `<div class="emptyList"><span class="emptyListLabel">${obj.label}</span> has no children.</div>` }
+}  
+  
+  titleRender(obj){return `: ${obj.label} [${obj.productGroupLabel}]`}
+}
+
+var app = new App();
+
+class Treeview {
+  constructor(config){
+    this.config = config;
+    this.tree = null;
+    this.history = [];
+    this.onload = this.config.onload||this.onload;
+    this.loadTree();
+    this.selectedNode = null;
+    this.context = null;
+  } 
+   
+  loadTree(){ 
+    fetch(this.config.url).then((response)=>response.json()).then((json)=>{
+    this.tree = json;
+    this.render();
+    this.onload(json); 
+    this.attachParent(this.tree.data[0]);
+    console.log(json);
+    })
+    }
+ onload(data){
+//   console.log("In Onload")
+  // this.selectNode("owl:Class");
+ } 
+ 
+ attachParent(obj,parent='',parentLabel=''){ 
+   if (parent === ''){
+     parent = obj['@id'];
+     parentLabel = obj.label;
+   }
+     console.log(parent,parentLabel);
+     obj.parent = parent;
+     obj.parentLabel = parentLabel;
+     parent = obj['@id'];
+     parentLabel = obj.label;
+     if (obj.children != null){
+      obj.children.forEach((child)=>this.attachParent(child,parent,parentLabel));
+     }
+ }
+  
+ activate(evt){
+   var target = evt.target;
+   var id = target.dataset.id;
+//   console.log(id);
+   var path = evt.path;
+   var details = path.filter((item)=>item.className==="treeItem")
+//   console.log(details);
+ } 
+   
+ getNode(id){
+   this.findArray = []; this.tree.data.forEach((obj)=>    this.findNode(obj,(obj)=>obj["@id"]===id));
+   var node = this.findArray[0];
+   this.findArray=[];
+//   console.log(node)
+   return node;
+ }
+ search(evt){
+   var searchCtl = evt.target;
+   var q = searchCtl.value;
+   if (q === ""){q = "#_#"}
+   var qRe = eval(`/${q}/i`)
+   this.findArray = [];
+   var filter = (obj)=>(obj.label.match(qRe)||obj.description.match(qRe));
+   this.tree.data.forEach((obj)=>this.findNode(obj,filter))
+   var nodes = this.findArray.map((obj)=>{return {label:obj.label,id:obj["@id"],parent:obj.parent}})
+   this.findArray = [];
+   var results = this.searchTemplate(nodes);
+   if (nodes.length >0 ){
+   $elt('.treeSearchResults').innerHTML = results;
+   }
+   else {
+$elt('.treeSearchResults').innerHTML = ''     
+   }
+ }
+ 
+  selectTemplate(obj){
+    return `<select class="selectBox" id="${obj.id}" value="${obj.data.find((item)=>item.state === 'selected').id}">
+${obj.data.map((item)=>`<option value="${item.id}" ${item.state === 'selected'?`selected="selected"`:''}>${item.label}</option>`).join("\n")}</select>`;
+  }
+  
+ searchTemplate(nodes){
+   return nodes.map((obj)=>`
+<div class="searchItem" data-idref="${obj.id}" tabindex="0" 
+onkeypress="treeview.selectNode(event);return false"
+onclick="treeview.selectNode(event);return false">${obj.label} <span class="searchParent">${obj.parent!=null?`[${obj.parent}]`:''}</span></div>`).join("\n")
+
+ }
+ findNode(obj,filter){
+//   console.log(obj,filter(obj));
+   if (filter(obj)){this.findArray.push(obj)}
+   if (obj.children != null) {obj.children.map((child)=>{
+      if (!child.hasOwnProperty("parent")){child.parent = obj.label;}
+      this.findNode(child,filter)
+   })}
+ }  
+  
+ containerRender(obj){return `
+<div class="treeSearchContainer">
+  <div class="productGroup">${this.selectTemplate(obj.productGroup)}</div>
+  <div class="treeSearch"><input type="search" placeholder="Search" id="treeSearchCtrl"
+oninput="treeview.search(event)" tabindex="0"></input>
+</div>
+<div class="treeSearchResults">
+ 
+</div>
+</div>
+<div class="treeview" onclick="treeview.activate(event);return true">${this.tree.data.map((item)=>this.treeItemRender(item)).join("\n")}</div>
+`}
+  treeItemRender(obj){
+    obj.children.sort((a,b)=>a.label>b.label);
+    return `
+  <details class="treeItem" data-leaf="${obj.children.length === 0}">
+<summary class="summaryItem"><span><img src="${obj.icon?obj.icon:`https://s3-us-west-2.amazonaws.com/s.cdpn.io/620300/Item.png`}" class="imageIcon" align="left"/><span class="itemLabel" tabindex="1"   
+onclick="treeview.selectNode(event);return false"
+onkeypress= "treeview.selectNode(event);return false"
+data-id="${obj["@id"]}">${obj.label} ${obj.children.length>0?`[${obj.children.length}]`:''}</span></span></summary>
+    ${obj.children.map((item)=>this.treeItemRender(item)).join("\n")}
+  </details>
+`}
+ treeIndicatorRenderer(obj){
+   
+ } 
+ render(){
+   var treeview = $elt(this.config.target);
+   treeview.innerHTML="";
+   treeview.insertAdjacentHTML("beforeEnd",this.containerRender(this.config))
+ }
+
+selectNode(evt){
+  var oldSelectedNode = this.selectedNode;
+  if (oldSelectedNode != null){
+    oldSelectedNode.dataset.selected = false;
+    oldSelectedNode.removeAttribute("open");
+  } 
+  var id = (typeof evt === "object")?evt.target.dataset.idref||evt.target.dataset.id:evt;
+  this.context = id;
+  var node = document.querySelector(`${this.config.target} span[data-id='${id}']`);
+  console.log(node);
+  node.focus();
+  if (evt.path){
+//   console.log(evt.path);
+      evt.path.filter((elt)=>elt.nodeName==="DETAILS").forEach(elt=>{elt.setAttribute("open","open")});
+  }
+  if (node){
+    var parent = node.parentNode;
+//    console.log(parent.nodeName);
+    while (parent.nodeName != "DETAILS"){
+      parent = parent.parentNode;
+    }
+    
+    while (parent.nodeName==="DETAILS"){
+       parent.setAttribute("open","open");
+       var parent = parent.parentNode;
+    }
+    $elt(".treeSearchResults").innerHTML = "";
+    $elt("#treeSearchCtrl").value = ""
+    node.dataset.selected = true;
+    this.selectedNode = node;
+    this.contextData = this.getNode(this.context);    
+    console.log(this.contextData);
+//    this.copyToClipboard(this.context);
+    this.onselect({context:this.context,data:this.contextData});  
+  }
+  return true;
+}
+onselect(event){
+  app.oncontextchanged(event);
+}
+
+addToHistory(){
+   this.history.push(this.contextData); 
+   console.log(this.history);
+   }   
+} 
+
+class Mode {
+  constructor(modeConfig){
+    this.data = modeConfig.data;
+    this.target = modeConfig.target;
+    $elt(this.target).innerHTML = this.render();
+    this.activeMode = null;
+    var activeItem = this.data.find((item)=>item.state ==='selected')||null;
+    if (activeItem){
+      this.select(activeItem.id);    
+    }
+    else {
+      var firstItem = this.data.find((item)=>item.state ==='active');
+      this.select(firstItem.id);
+    }
+    $elt(this.target).onclick =(event)=>this.select(event);
+  } 
+  render(){return this.data.map((item)=> `<div class="modeItem" data-id="${item.id}" data-state="${item.state}">${item.label}</div>`).join("\n");
+    
+  }
+  select(event){
+    console.log(event);
+    var elt;
+    var oldItem = this.data.find((item)=>item.id === this.activeMode);
+    /* if a token is passed determine active button from tokn */
+    if (typeof event === "string"){
+        var id = event;
+        if (this.activeMode != null){
+        var oldElt = $elt(this.target).querySelector(`div.modeItem[data-id='${this.activeMode}']`);
+        if (oldEdit != null){
+          oldElt.dataset.state="active";
+          }
+        }
+        elt = $elt(this.target).querySelector(`div.modeItem[data-id='${id}`);
+        elt.dataset.state="selected";
+        this.activeMode = id;
+        app.onmodeselect({activeMode:this.activeMode});
+        return false;
+    } 
+    /* otherwise, query the element to get the active mode */
+    else {
+        elt = event.path[0];
+        if (elt.dataset.state === "inactive"){return false;}
+        var oldElt = $elt(this.target).querySelector(`div.modeItem[data-id='${oldItem.id}']`);
+        oldElt.dataset.state="active";
+        elt.dataset.state="selected";
+        this.activeMode = elt.dataset.id;
+        app.onmodeselect({activeMode:this.activeMode});
+        return false;
+    }
+  }
+} 
+
+var modeConfig = {target:"#mode",data:[
+  {
+    id:"view",
+    label:"View",
+    state:"selected"
+  },
+  {
+    id:"search",
+    label:"Search",
+    state:"active"
+  },
+  {
+    id:"edit",
+    label:"Edit",
+    state:"active"
+  },
+  
+  {
+    id:"wiki",
+    label:"Wiki",
+    state:"active"
+  },
+  {
+    id:"clone",
+    label:"Clone",
+    state:"active"
+  },
+  {
+    id:"graph",
+    label:"Graph",
+    state:"active"
+  },
+  {
+    id:"usage",
+    label:"Usage",
+    state:"active"
+  },
+  {
+    id:"comments",
+    label:"Comments",
+    state:"active"
+  },
+  {
+    id:"mapper",
+    label:"Mapper",
+    state:"active"
+  }
+]};
+var mode = new Mode(modeConfig);
+
+var config = {
+   url:"https://s3-us-west-2.amazonaws.com/s.cdpn.io/620300/dnb.json",
+   imagePath:"https://s3-us-west-2.amazonaws.com/s.cdpn.io/620300/",
+   title:"Dun and Bradstreet Ontologies",
+  target:"#treeview",
+  productGroup:{data:[
+    {id:"directplus",label:"Direct Plus Product Group",state:"selected"},
+    {id:"direct2",label:"Direct 2.0 Product Group",state:"active"},
+    {id:"direct1",label:"Direct 1.0 Product Group",state:"active"},
+  ]}
+}; 
+var treeview = new Treeview(config);
+
+var link = (curie,text)=>`<span class="internalLink" onclick="treeview.selectNode('${curie}');return false;">${text}</span>`
+  </script>
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+  <!-- BEGIN VENDOR JS-->
+  <script src="../../../app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
+  <!-- BEGIN VENDOR JS-->
+  <!-- BEGIN PAGE VENDOR JS-->
+  <script src="../../../app-assets/vendors/js/forms/validation/jqBootstrapValidation.js"
+  type="text/javascript"></script>
+  <script src="../../../app-assets/vendors/js/forms/icheck/icheck.min.js" type="text/javascript"></script>
+  <!-- END PAGE VENDOR JS-->
+  <!-- BEGIN STACK JS-->
+  <script src="../../../app-assets/js/core/app-menu.js" type="text/javascript"></script>
+  <script src="../../../app-assets/js/core/app.js" type="text/javascript"></script>
+  <script src="../../../app-assets/js/scripts/customizer.js" type="text/javascript"></script>
+  <!-- END STACK JS-->
+  <!-- BEGIN PAGE LEVEL JS-->
+  <script src="../../../app-assets/js/scripts/forms/form-login-register.js" type="text/javascript"></script>
+  <!-- END PAGE LEVEL JS-->
+</body>
+</html>

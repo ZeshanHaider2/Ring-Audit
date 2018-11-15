@@ -1,0 +1,825 @@
+<style>
+  :root {
+  font-family:Arial;
+  font-size:10pt;
+}
+
+#header {
+  font-size:14pt;
+  font-weight:bold;
+  padding:5pt;
+}
+
+#treeview {
+  width:300px;
+}
+.treeTitle {
+  font-weight:bold;
+  font-size:14pt;
+}
+.summaryItem {
+  display:grid;
+  grid-template-columns:25px 250px;
+  cursor:pointer;
+}
+.itemStateIndicator {display:inline-block;}
+
+.itemLabel {display:inline-block;}
+
+details details {
+  margin-left:0.25in;
+}
+
+.searchItem {
+  font-weight:bold;
+  cursor:pointer;
+  padding:3px;
+}
+
+.searchParent {
+  font-weight:normal;
+  font-style:italic;
+  pointer-events:none;
+}
+
+div.searchItem:hover  {
+  background:lightBlue;
+}
+
+.treeSearchResults {
+  border:inset 2px gray;
+}
+span[data-selected=true]{
+  background:lightBlue;
+}
+
+.imageIcon {
+    width:20px;
+    height:20px;
+    padding-right:5px;
+}
+*::-webkit-details-marker {
+  color:transparent;
+}
+
+.imageIconLarge {
+    width:32px;
+    height:32px;
+    padding-right:5px;
+}
+*::-webkit-details-marker {
+  color:transparent;
+}
+
+section {
+  display:grid;
+  max-width:1200px;
+  grid-template-areas:"header header header"
+    "treeview display mode"
+    "treeview display bookmarks"
+    "constraints display bookmarks"
+    ;
+  grid-template-columns:300px auto 200px;
+  grid-template-rows:40px auto auto;
+  
+}
+#header {
+  display:block;
+  grid-area:header;
+  border:outset 2px #c19e67;
+  background: linear-gradient(135deg, #f3e2c7 0%,#c19e67 37%,#b68d4c 41%,#dbc9af 70%,#b5a690 75%,#e9d4b3 100%); 
+  text-shadow:-1px -1px 1px rgba(0,0,0,0.5),1px 1px 1px rgba(255,255,255,0.5)
+  
+}
+#treeview {
+  display:block;
+  grid-area:treeview;
+  border:solid 2px green;
+  
+}
+#display {
+  display:block;
+  grid-area:display;
+  border:inset 2px darkGreen;
+  background:linear-gradient(to bottom,darkGreen,black);
+}
+
+#constraints {
+  border:inset 2px gray;
+  padding:5px;
+}
+
+#mode {
+  display:block;
+  grid-area:mode; 
+  border:solid 2px gray;
+}
+
+#bookmarks {
+  display:block;
+  grid-area:bookmarks; 
+  border:solid 2px gray;
+  padding:5px; 
+}
+
+.card {
+  margin:0.25in;
+  border:outset 3px lightGray;
+  border-radius:12pt;
+  padding:0.25in;
+  box-shadow:5px 5px 5px rgba(0,0,0,0.7);
+  min-height:4in;
+  background:linear-gradient(to bottom,white,#FFFCF0)
+}
+.cardTitle {
+  font-size:18pt;
+  font-weight:bold;
+  padding-bottom:0.125in;
+}
+.cardType {
+  font-size:12pt;
+  font-weight:bold;
+  font-style:italic;
+  cursor:pointer;
+  color:blue;
+}
+.cardDescription {
+  
+  padding:0.125in;
+}
+.cardNamespace {
+  border-top:solid 2px blue;
+  border-bottom:solid 1px blue;
+  padding:0.125in;
+}
+.treeview {
+  margin-left:-0.25in;
+  padding-top:5px;
+  max-height:100%;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+.internalLink {
+  color:blue;
+  text-decoration:underline;
+  cursor:pointer;
+}
+.propertiesLabel {
+  margin-top:0.25in;
+  font-size:14pt;
+  font-weight:bold;
+  text-decoration:underline;
+
+}
+.property {
+  padding-top:5px;
+}
+.propertyLabel {
+  color:blue;
+  cursor:pointer;
+}
+.rangeLabel {
+  color:blue;
+  cursor:pointer;
+}
+.emptyList {
+  margin-top:0.25in;
+}
+.emptyListLabel {
+  font-weight:bold;
+}
+#mode {
+  background:black;
+}
+
+#mode div.modeItem {
+  background:#E0D0C0;
+  border:outset 2px #fefeff;
+  text-align:center;
+  padding:5px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+#mode div[data-state='selected'].modeItem {
+  background:#B0A090;
+  border:inset 2px #E0D0C0;
+  text-align:center;
+  padding:5px;
+}
+
+#mode div[data-state='active']:active.modeItem {
+  background:#B0A090;
+  border:inset 2px #E0D0C0;
+  text-align:center;
+  padding:5px;
+}
+
+#mode div[data-state='inactive'].modeItem {
+  background:#A0A0A0;
+  border:inset 2px #A0A0A0;
+  color:#606060;
+  text-align:center;
+  padding:5px;
+  text-shadow:1px 1px 1px rgba(255,255,255,0.5),
+    -1px -1px 1px rgba(0,0,0,0.5);
+  cursor:not-allowed;
+}
+.constraintsHeader {
+  font-size:14pt;
+  font-weight:bold;
+  
+}
+
+
+.bookmarksHeader {
+  font-size:14pt;
+  font-weight:bold;
+  
+}
+.bookmark {
+  color:blue;
+  padding-left:5px;
+}
+
+.cardTitleBar {
+  display:flex;
+  flex-direction:columns;
+  justify-content:space-between;
+}
+/* Default for folders */
+/*summary::-webkit-details-marker {
+  background-image:url('http://files.softicons.com/download/folder-icons/plastic-folders-icons-by-sirubico/png/16x16/Folder-Generic.png');
+  width:16px;
+  height:16px;
+  color:transparent;
+}*/
+
+/* Patients */
+/*summary[data-type="class:patient"]::-webkit-details-marker {
+  background-image:url('http://files.softicons.com/download/toolbar-icons/16x16-free-application-icons-by-aha-soft/png/16x16/Person.png');
+  width:16px;
+  height:16px;
+  color:transparent;
+}*/
+
+/* Physicians */
+/*summary[data-type="class:physician"]::-webkit-details-marker {
+  background-image:url('http://files.softicons.com/download/medical-icons/health-icons-by-kliniko/png/16x16/doctor.png');
+  width:16px;
+  height:16px;
+  color:transparent;
+}*/
+
+/* Plans */
+/*summary[data-type="class:plan"]::-webkit-details-marker {
+  background-image:url('http://files.softicons.com/download/medical-icons/health-icons-by-kliniko/png/16x16/paper.png');
+  width:16px;
+  height:16px;
+  color:transparent;
+}*/
+
+/* Default for leafs */
+/*summary:only-child::-webkit-details-marker {
+  color:transparent;
+  background-color:green;
+  background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/620300/report3_16x16.gif);
+  width:16px;
+  height:16px;
+}*/
+/*
+summary .icon {
+  width:16px;
+  height:16px;
+}
+
+
+
+summary:only-child::-webkit-details-marker {
+  color:transparent;
+}
+details details {
+  margin-left:10pt;
+  display:block;
+}
+
+section {
+  display:flex;
+  flex-direction:row;
+  
+}
+
+#display {
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  align-items:center;
+  background:linear-gradient(to bottom,white,#865A44);
+min-height:250px;  
+}
+#display {font-family:Arial;
+width:250px;
+padding:5px; 
+border:solid 1px black;
+}
+.label {font-size:14pt;
+font-weight:bold;
+}
+.descr {
+  display:block;
+  font-size:10pt;
+  color:white;
+  text-shadow:3px 3px 3px rgba(0,0,0,0.8);
+}
+.entryImage {
+  max-height:200px;
+  max-width:200px;
+  
+  margin-right:5pt;
+}
+*/
+</style>
+<section>
+    <div id="header">Context Navigator <span id="headerLabel"></span></div>
+    
+  <div id="treeview"> 
+   
+  </div>  
+  <div id="display">This is the display</div>
+  <div id="mode"></div>
+  <div id="bookmarks">
+    <div class="bookmarksHeader">Bookmarks</div>
+    <div class="bookmark"><span class="bookmarkLabel">Person</span> </div>
+    <div class="bookmark"><span class="bookmarkLabel">Agent</span> </div>
+    <div class="bookmark"><span class="bookmarkLabel">Vocabularies</span> </div>
+  </div>
+  <div id="constraints">
+    <div class="constraintsHeader">Constraints</div>
+    <div class="constraint"><input type="checkbox" checked="checked" /><span class="constraintLabel">Direct Plus Product Group</span> &#8864; </div>
+    
+  </div>  
+  </section> 
+<script>
+  const $elt = (selector)=>document.querySelector(selector);
+const $elts = (selector)=>document.querySelectorAll(selector);
+
+namespaces = {
+  "class":"http://meta.dnb.com/class/",
+  "name":"http://meta.dnb.com/name/",
+  "color":"http://meta.dnb.com/color/",
+  "person":"http://meta.dnb.com/person/",
+  "personalName":"http://meta.dnb.com/personalName/",
+  "property":"http://meta.dnb.com/property/",
+  "shape":"http://meta.dnb.com/shape/",
+  "gender":"http://meta.dnb.com/property/",
+  "xsd":"http://www.w3.org/2001/XMLSchema#",
+  "owl":"http://www.w3.org/2002/07/owl#",
+  "cardinality":"http://meta.dnb.com/cardinality/"
+};
+
+
+class NS {
+    constructor(namespaces){
+        this.ns = namespaces;
+       
+    }
+    ciri(curie){
+        var qnames = curie.split(/:/);
+        return `${this.ns[qnames[0]]}${qnames[1]}`;
+    }
+    curie(iri){
+        var curieTerm = null
+        var separator = iri.match("#")?"#":"/";
+        var tokens = iri.split(separator);
+        var term = tokens[tokens.length - 1];
+        tokens.pop();
+        var namespace = (separator==="#")?(tokens.join("/"))+"#":(tokens.join("/"))+"/";
+        console.log(separator==="#",namespace,term);
+        var resultArr = Object.keys(this.ns).filter((prefix)=>this.ns[prefix] === namespace);
+        
+        if (resultArr.length == 1){curieTerm = `${resultArr[0]}:${term}`};
+        return curieTerm;
+    }
+    prologTurtle(){
+        return Object.keys(this.ns).map((prefix)=>`@prefix ${prefix}: <${this.ns[prefix]}>.`).join("\n")+("\n");
+    }
+    prologSparql(){
+        return Object.keys(this.ns).map((prefix)=>`prefix ${prefix}: <${this.ns[prefix]}>`).join("\n")+("\n");
+    }
+    prolog(mode="turtle"){
+        switch(mode){}
+        if (mode === "turtle"){
+            return this.prologTurtle(this.ns)
+            }
+        if (mode === "sparql"){
+            return this.prologSparql(this.ns)
+            }
+        if (mode === "json"){
+            return JSON.stringify(this.ns)
+            }    
+        }
+    }
+var ns = new NS(namespaces);
+
+class App {
+  constructor(){
+    this.treeview = treeview;
+    this.mode = mode;
+    this.context = null;
+  }
+  oncontextchanged(evt){
+    this.context = evt.context;
+    console.log("Data = ",evt.data);
+    $elt('#display').innerHTML  = this.displayRender(evt.data);
+    //tinymce.init({ selector:'textarea.tinymce' });
+
+    $elt('#headerLabel').innerHTML  = this.titleRender(evt.data);
+  }
+  
+  onmodeselect(evt){
+     this.activeMode = evt.activeMode;
+     if (this.context != null){
+         treeview.selectNode(this.context);
+        }
+     console.log(evt.activeMode);
+  }
+  
+  displayRender(obj){
+    switch(this.activeMode){
+      case "view":{ return `
+<div class="card"> 
+  ${this.displayCardHeader(obj)}
+<div class="cardNamespace">${ns.ciri(obj['@id'])} </div>
+<div class="cardDescription">${eval('`'+obj.description+'`')}</div>
+${this.renderProperties(obj)}
+${this.renderChildren(obj)}
+</div>
+`;break;}
+      case "edit":{ return `
+<div class="card">
+  ${this.displayCardHeader(obj)}
+<div>This is the editing page.</div>
+</div>
+`}        
+      case "wiki":{ return `
+<div class="card">
+  ${this.displayCardHeader(obj)}
+<div><textarea class="tinymce"></textarea></div>
+</div>
+`}        
+    }
+}
+displayCardHeader(obj){
+   return `<div class="cardType" onclick="treeview.selectNode('${obj.parent}');return false">&lt;${obj.parentLabel}&gt;</div>
+<div class="cardTitleBar">
+<div class="cardTitle"><img src="${obj.icon?obj.icon:`https://s3-us-west-2.amazonaws.com/s.cdpn.io/620300/Item.png`}" class="imageIconLarge" align="left"/> ${obj.label} </div>
+<div class="cardMode">${this.activeMode}</div>
+</div>`
+}  
+renderProperties(obj){
+  if (obj.properties&&obj.properties.length>0){return  `
+<div class="properties">
+    <div class="propertiesLabel">Properties</div>
+    ${obj.properties.map((prop)=>`<div class="property">
+   <span class="propertyLabel" onclick="treeview.selectNode('${prop['@ref']}');return false">${prop.label}</span> ${prop.hasOwnProperty("range")?` [<span class="rangeLabel" onclick="treeview.selectNode('${prop.range}');return false">${prop.rangeLabel}</span>]`:` ${(prop.datatype === "IRI")?` &#8658; <span class="rangeLabel" onclick="treeview.selectNode('${prop.valueType}');return false">${prop.valueLabel}</span>`:` = <span class="value">"${prop.value}"</span>`}
+`}`).join('\n')}</div>`}
+ else {return `<div class="emptyList"><span class="emptyListLabel">${obj.label}</span> has no properties.</div>` }
+}
+renderChildren(obj){
+  if ((Array.isArray(obj.children))&&obj.children.length>0){return  `
+<div class="children">
+    <div class="propertiesLabel">Children</div>
+    ${obj.children.map((child)=>`<div class="property">
+   <span class="rangeLabel" onclick="treeview.selectNode('${child['@id']}');return false">${child.label}</span>
+</div>`).join('\n')} 
+` }
+ else {return `<div class="emptyList"><span class="emptyListLabel">${obj.label}</span> has no children.</div>` }
+}  
+  
+  titleRender(obj){return `: ${obj.label} [${obj.productGroupLabel}]`}
+}
+
+var app = new App();
+
+class Treeview {
+  constructor(config){
+    this.config = config;
+    this.tree = null;
+    this.history = [];
+    this.onload = this.config.onload||this.onload;
+    this.loadTree();
+    this.selectedNode = null;
+    this.context = null;
+  } 
+   
+  loadTree(){ 
+    fetch(this.config.url).then((response)=>response.json()).then((json)=>{
+    this.tree = json;
+    this.render();
+    this.onload(json); 
+    this.attachParent(this.tree.data[0]);
+    console.log(json);
+    })
+    }
+ onload(data){
+//   console.log("In Onload")
+  // this.selectNode("owl:Class");
+ } 
+ 
+ attachParent(obj,parent='',parentLabel=''){ 
+   if (parent === ''){
+     parent = obj['@id'];
+     parentLabel = obj.label;
+   }
+     console.log(parent,parentLabel);
+     obj.parent = parent;
+     obj.parentLabel = parentLabel;
+     parent = obj['@id'];
+     parentLabel = obj.label;
+     if (obj.children != null){
+      obj.children.forEach((child)=>this.attachParent(child,parent,parentLabel));
+     }
+ }
+  
+ activate(evt){
+   var target = evt.target;
+   var id = target.dataset.id;
+//   console.log(id);
+   var path = evt.path;
+   var details = path.filter((item)=>item.className==="treeItem")
+//   console.log(details);
+ } 
+   
+ getNode(id){
+   this.findArray = []; this.tree.data.forEach((obj)=>    this.findNode(obj,(obj)=>obj["@id"]===id));
+   var node = this.findArray[0];
+   this.findArray=[];
+//   console.log(node)
+   return node;
+ }
+ search(evt){
+   var searchCtl = evt.target;
+   var q = searchCtl.value;
+   if (q === ""){q = "#_#"}
+   var qRe = eval(`/${q}/i`)
+   this.findArray = [];
+   var filter = (obj)=>(obj.label.match(qRe)||obj.description.match(qRe));
+   this.tree.data.forEach((obj)=>this.findNode(obj,filter))
+   var nodes = this.findArray.map((obj)=>{return {label:obj.label,id:obj["@id"],parent:obj.parent}})
+   this.findArray = [];
+   var results = this.searchTemplate(nodes);
+   if (nodes.length >0 ){
+   $elt('.treeSearchResults').innerHTML = results;
+   }
+   else {
+$elt('.treeSearchResults').innerHTML = ''     
+   }
+ }
+ 
+  selectTemplate(obj){
+    return `<select class="selectBox" id="${obj.id}" value="${obj.data.find((item)=>item.state === 'selected').id}">
+${obj.data.map((item)=>`<option value="${item.id}" ${item.state === 'selected'?`selected="selected"`:''}>${item.label}</option>`).join("\n")}</select>`;
+  }
+  
+ searchTemplate(nodes){
+   return nodes.map((obj)=>`
+<div class="searchItem" data-idref="${obj.id}" tabindex="0" 
+onkeypress="treeview.selectNode(event);return false"
+onclick="treeview.selectNode(event);return false">${obj.label} <span class="searchParent">${obj.parent!=null?`[${obj.parent}]`:''}</span></div>`).join("\n")
+
+ }
+ findNode(obj,filter){
+//   console.log(obj,filter(obj));
+   if (filter(obj)){this.findArray.push(obj)}
+   if (obj.children != null) {obj.children.map((child)=>{
+      if (!child.hasOwnProperty("parent")){child.parent = obj.label;}
+      this.findNode(child,filter)
+   })}
+ }  
+  
+ containerRender(obj){return `
+<div class="treeSearchContainer">
+  <div class="productGroup">${this.selectTemplate(obj.productGroup)}</div>
+  <div class="treeSearch"><input type="search" placeholder="Search" id="treeSearchCtrl"
+oninput="treeview.search(event)" tabindex="0"></input>
+</div>
+<div class="treeSearchResults">
+ 
+</div>
+</div>
+<div class="treeview" onclick="treeview.activate(event);return true">${this.tree.data.map((item)=>this.treeItemRender(item)).join("\n")}</div>
+`}
+  treeItemRender(obj){
+    obj.children.sort((a,b)=>a.label>b.label);
+    return `
+  <details class="treeItem" data-leaf="${obj.children.length === 0}">
+<summary class="summaryItem"><span><img src="${obj.icon?obj.icon:`https://s3-us-west-2.amazonaws.com/s.cdpn.io/620300/Item.png`}" class="imageIcon" align="left"/><span class="itemLabel" tabindex="1"   
+onclick="treeview.selectNode(event);return false"
+onkeypress= "treeview.selectNode(event);return false"
+data-id="${obj["@id"]}">${obj.label} ${obj.children.length>0?`[${obj.children.length}]`:''}</span></span></summary>
+    ${obj.children.map((item)=>this.treeItemRender(item)).join("\n")}
+  </details>
+`}
+ treeIndicatorRenderer(obj){
+   
+ } 
+ render(){
+   var treeview = $elt(this.config.target);
+   treeview.innerHTML="";
+   treeview.insertAdjacentHTML("beforeEnd",this.containerRender(this.config))
+ }
+
+selectNode(evt){
+  var oldSelectedNode = this.selectedNode;
+  if (oldSelectedNode != null){
+    oldSelectedNode.dataset.selected = false;
+    oldSelectedNode.removeAttribute("open");
+  } 
+  var id = (typeof evt === "object")?evt.target.dataset.idref||evt.target.dataset.id:evt;
+  this.context = id;
+  var node = document.querySelector(`${this.config.target} span[data-id='${id}']`);
+  console.log(node);
+  node.focus();
+  if (evt.path){
+//   console.log(evt.path);
+      evt.path.filter((elt)=>elt.nodeName==="DETAILS").forEach(elt=>{elt.setAttribute("open","open")});
+  }
+  if (node){
+    var parent = node.parentNode;
+//    console.log(parent.nodeName);
+    while (parent.nodeName != "DETAILS"){
+      parent = parent.parentNode;
+    }
+    
+    while (parent.nodeName==="DETAILS"){
+       parent.setAttribute("open","open");
+       var parent = parent.parentNode;
+    }
+    $elt(".treeSearchResults").innerHTML = "";
+    $elt("#treeSearchCtrl").value = ""
+    node.dataset.selected = true;
+    this.selectedNode = node;
+    this.contextData = this.getNode(this.context);    
+    console.log(this.contextData);
+//    this.copyToClipboard(this.context);
+    this.onselect({context:this.context,data:this.contextData});  
+  }
+  return true;
+}
+onselect(event){
+  app.oncontextchanged(event);
+}
+
+addToHistory(){
+   this.history.push(this.contextData); 
+   console.log(this.history);
+   }   
+} 
+
+class Mode {
+  constructor(modeConfig){
+    this.data = modeConfig.data;
+    this.target = modeConfig.target;
+    $elt(this.target).innerHTML = this.render();
+    this.activeMode = null;
+    var activeItem = this.data.find((item)=>item.state ==='selected')||null;
+    if (activeItem){
+      this.select(activeItem.id);    
+    }
+    else {
+      var firstItem = this.data.find((item)=>item.state ==='active');
+      this.select(firstItem.id);
+    }
+    $elt(this.target).onclick =(event)=>this.select(event);
+  } 
+  render(){return this.data.map((item)=> `<div class="modeItem" data-id="${item.id}" data-state="${item.state}">${item.label}</div>`).join("\n");
+    
+  }
+  select(event){
+    console.log(event);
+    var elt;
+    var oldItem = this.data.find((item)=>item.id === this.activeMode);
+    /* if a token is passed determine active button from tokn */
+    if (typeof event === "string"){
+        var id = event;
+        if (this.activeMode != null){
+        var oldElt = $elt(this.target).querySelector(`div.modeItem[data-id='${this.activeMode}']`);
+        if (oldEdit != null){
+          oldElt.dataset.state="active";
+          }
+        }
+        elt = $elt(this.target).querySelector(`div.modeItem[data-id='${id}`);
+        elt.dataset.state="selected";
+        this.activeMode = id;
+        app.onmodeselect({activeMode:this.activeMode});
+        return false;
+    } 
+    /* otherwise, query the element to get the active mode */
+    else {
+        elt = event.path[0];
+        if (elt.dataset.state === "inactive"){return false;}
+        var oldElt = $elt(this.target).querySelector(`div.modeItem[data-id='${oldItem.id}']`);
+        oldElt.dataset.state="active";
+        elt.dataset.state="selected";
+        this.activeMode = elt.dataset.id;
+        app.onmodeselect({activeMode:this.activeMode});
+        return false;
+    }
+  }
+} 
+
+var modeConfig = {target:"#mode",data:[
+  {
+    id:"view",
+    label:"View",
+    state:"selected"
+  },
+  {
+    id:"search",
+    label:"Search",
+    state:"active"
+  },
+  {
+    id:"edit",
+    label:"Edit",
+    state:"active"
+  },
+  
+  {
+    id:"wiki",
+    label:"Wiki",
+    state:"active"
+  },
+  {
+    id:"clone",
+    label:"Clone",
+    state:"active"
+  },
+  {
+    id:"graph",
+    label:"Graph",
+    state:"active"
+  },
+  {
+    id:"usage",
+    label:"Usage",
+    state:"active"
+  },
+  {
+    id:"comments",
+    label:"Comments",
+    state:"active"
+  },
+  {
+    id:"mapper",
+    label:"Mapper",
+    state:"active"
+  }
+]};
+var mode = new Mode(modeConfig);
+
+var config = {
+   url:"https://s3-us-west-2.amazonaws.com/s.cdpn.io/620300/dnb.json",
+   imagePath:"https://s3-us-west-2.amazonaws.com/s.cdpn.io/620300/",
+   title:"Dun and Bradstreet Ontologies",
+  target:"#treeview",
+  productGroup:{data:[
+    {id:"directplus",label:"Direct Plus Product Group",state:"selected"},
+    {id:"direct2",label:"Direct 2.0 Product Group",state:"active"},
+    {id:"direct1",label:"Direct 1.0 Product Group",state:"active"},
+  ]}
+}; 
+var treeview = new Treeview(config);
+
+var link = (curie,text)=>`<span class="internalLink" onclick="treeview.selectNode('${curie}');return false;">${text}</span>`
+//treeview.onload=(tree)=>treeview.getNode("class:Person");
+//var treeview = new Treeview(".treeview",imageUrl); 
+/*treeview.on("select",(event)=>{
+  var node = event.target;
+  var data = node.dataset;
+  console.log(data); 
+ var placeHolder = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/620300/mug_coffee_PNG16875.png";
+  var icon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/620300/${data.imageurl}`;
+  display.innerHTML = `<div class="label">${data.label}</div> <img class="entryImage" src="${data.imageurl!=''?data.imageurl:placeHolder}"/>
+${data.description?`<div class="descr">${data.description}</div>`:''}`;
+  console.log(event.target)
+});*/
+//    treeview.replaceData(data);
+//    treeview.select("class:Vocabulary");
+//    treeview.open("class:Vocabulary");
+    /*
+    treeview.select("patient:janeDoe")
+    setTimeout(()=>treeview.appendData(physicians,"categories"),3000);
+    */
+/*function refresh() {
+fetch(url).then((response)=>response.json()).then((data)=>{
+  treeview.replaceData(data)
+   treeview.select("class:Vocabulary");
+   treeview.open("class:Vocabulary");                                    });
+};
+refresh();*/ 
+                              
+</script>  
+  
+  
+  
