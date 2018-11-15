@@ -28,64 +28,39 @@
   <!-- BEGIN Custom CSS-->
   <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
   <style>
-    .field-icon {
-      float: right;
-      margin-left: -25px;
-      margin-top: -15px;
-      position: relative;
-      z-index: 2;
-      }
-      .fa-eye, .fa-eye-slash {
-        margin-right: 5px;
-      }
-      .brand-text{
-        font-weight: bold;
-      }
-      #lgn-text{
-        font-size: 19px;
-      }
-      #sub-btn{
-        background-color: #226288;
-        color: #fff;
-        width: 50px;
-        border-radius: 50%;
-        border: none;
-        font-weight: bold;
-        font-size: 20px;
-      }
-      #forgot-pw{
-        color: #2e405c;
-      }
 
-      #password-field {
-        padding-left: 10px !important;
-        padding-right: 20px !important;
-        position: relative;
-        top: 15px;
-      }
+    .flex-container2{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
 
-      .card-header{
-        background: #F5F7FA !important;
+    .my-wrapper{
+      width: 600px;
+      height: 100px;
+      margin-bottom: 215px;
+      text-align: center;
+    }
+
+   .brand-text{
+     font-weight: bold;
+   }
+
+   #slogan{
+        color:#2AA2DE; font-size: 17px;
       }
 
     .clock {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%);
-        color: #24a1ec;
-        font-size: 60px;
-        font-family: Orbitron;
-        letter-spacing: 7px;
-        width: 500px;
-        text-align: center;
+      text-align: center;
+      color: #24a1ec;
+      font-size: 60px;
+      font-family: Orbitron;
+      letter-spacing: 7px;
     }
-      .card-body {
-            padding: 0;
-        }
 
-        .u-name {
-            text-align: center;
-            margin-top: 15px;
+    .u-name 
+    {       text-align: center;
             background-color: #226288;
             color: #fff;
             height: 38px;
@@ -93,23 +68,27 @@
             margin-bottom: 10px;
             font-weight: bold;
             width: 200px;
-        }
+   }
 
-        label {
-            font-weight: bold;
-        }
-
-        input#password-field {
+   input#password-field {
             background: #226288;
             color: #fff;
             font-weight: bold;
+            width: 200px;
         }
+    
+  #sub-btn{
+          background-color: #226288;
+          color: #fff;
+          width: 35px;
+          height: 40px;
+          border-radius: 50%;
+          border: none;
+          font-weight: bold;
+          font-size: 12px;
+      }
 
-        .form-control{
-          width: 200px !important;
-        }
-
-        span.fa.fa-fw.field-icon.toggle-password.fa-eye-slash {
+      span.fa.fa-fw.field-icon.toggle-password.fa-eye-slash {
             color: #fff;
         }
 
@@ -117,71 +96,57 @@
             color: #fff;
         }
 
-      #slogan{
-        color:#2AA2DE; font-size: 17px;
-      }
+        .brand-text {
+            text-align: center;
+        }
 
-      .flex-container{
-        display: flex;
-        justify-content: space-between;
-      }
+        #slogan{
+          text-align: center;
+        }
+
+        .flex-container{
+          display: flex;
+          justify-content: space-around;
+          margin-top: 15px;
+          padding-left: 55px;
+        }
+
+        .field-icon {
+          float: right;
+          margin-left: -25px;
+          margin-top: -25px;
+          position: relative;
+          z-index: 2;
+          margin-right: 5px;
+          }
   </style>
   <!-- END Custom CSS-->
 </head>
-<body class="vertical-layout vertical-menu 1-column  bg-full-screen-image menu-expanded blank-page blank-page"
-data-open="click" data-menu="vertical-menu" data-col="1-column">
+<body>
   <!-- ////////////////////////////////////////////////////////////////////////////-->
-  <div class="app-content content">
-    <div class="content-wrapper">
-      <div class="content-header row">
-      </div>
-      <div class="content-body">
-        <section class="flexbox-container">
-          <div class="col-12 d-flex align-items-center justify-content-center">
-            <div class="col-md-4 col-10 p-0">
-              <div class="px-1 py-1 m-0">
-                <div class="card-header border-0">
-                  <div class="brand-container">
-                      <div class="card-title text-center">
-                          <img class="brand-logo" alt="ring admin logo" src="../../../app-assets/images/logo/stack-80x80.png">
-                          <h2 class="brand-text">Audit Ring</h2>
-                        </div>
-                        <p class="text-center font-small-3 mx-2 my-1" >
-                          <span id="slogan">Encirle. Manage. Discover. Ensure.</span>
-                        </p>
-                  </div>
-                  <div id="MyClockDisplay" class="clock"></div>
-                  <br>
-                  <div class="client-img">
-                      
-                  </div>
-                <div class="card-content">
-                  
-                  <div class="card-body">
-                    <form class="form-horizontal" action="index.html" novalidate>
-                      <div class="flex-container">
-                          <div class="u-name">
-                              <p>Mansoor</p>
-                          </div>
-
-                          <fieldset class="form-group has-icon-left">
-                            <input id="password-field" type="password" class="form-control" name="password" required>
-                            <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                          </fieldset>
-                          <button type="submit" class="btn btn-outline-primary btn-block" id="sub-btn">></button>
-                      </div>
-                      
-                    </form>
-                  </div>
-                  
+  <div class="flex-container2">
+      <div class="my-wrapper">
+          <img class="brand-logo" alt="ring admin logo" src="../../../app-assets/images/logo/stack-80x80.png">
+          <h2 class="brand-text">Audit Ring</h2>
+          <div id="slogan">Encirle. Manage. Discover. Ensure.</div>
+          <div id="MyClockDisplay" class="clock"></div>
+          <form class="form-horizontal" action="index.html" novalidate>
+            <div class="flex-container">
+                <div class="u-name">
+                <p>Mansoor</p>
                 </div>
-              </div>
+                
+                    <fieldset class="form-group has-icon-left">
+                      <input id="password-field" type="password" class="form-control" name="password" required>
+                      <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                    </fieldset>
+                    <button type="submit" class="btn btn-outline-primary btn-block" id="sub-btn">></button>
             </div>
-          </div>
-        </section>
-      </div>
-    </div>
+          </form>
+     </div>
   </div>
+  
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>
     function showTime(){
