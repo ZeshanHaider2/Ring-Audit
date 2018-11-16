@@ -231,10 +231,6 @@ h3.accor-head {
     margin-right: 65px;
 }
 
-.flex-container p{
-  margin-right: 20px;
-}
-
 .links button {
     background: #fff;
     border-top: none;
@@ -267,12 +263,8 @@ select#source {
 }
 
 .row {
-    border-bottom: 0.5px solid #c7c6c6;
+    border-bottom: 0.5px dotted #c7c6c6;
     padding-bottom: 15px;
-}
-
-p.impact-level {
-    margin-right: 41px;
 }
 
 /* The Modal (background) */
@@ -500,6 +492,14 @@ p.impact-level {
         text-align: center;
         text-transform: uppercase;
         color: #808080fa;
+      }
+
+      .radio-opt{
+        width: 145px;
+      }
+
+      .radio-label-custom {
+          width: 150px;
       }
   </style>
 </head>
@@ -883,48 +883,48 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                       </div>
                 <h3 class="accor-head">Inherent</h3>
                 <div class="flex-container">
-                    <p>Likelihood Level: </p>
-                    <p>
+                    <p class="radio-label-custom">Likelihood Level: </p>
+                    <p class="radio-opt">
                         <input type="radio" id="frequent" name="radio-group">
                         <label for="frequent">Frequent</label>
                       </p>
-                      <p>
+                      <p class="radio-opt">
                         <input type="radio" id="likely" name="radio-group">
                         <label for="likely">Likely</label>
                       </p>
-                      <p>
+                      <p class="radio-opt">
                         <input type="radio" id="possible" name="radio-group">
                         <label for="possible">Possible</label>
                       </p>
-                      <p>
+                      <p class="radio-opt">
                         <input type="radio" id="unlikely" name="radio-group">
                         <label for="unlikely">Unlikely</label>
                       </p>
-                      <p>
+                      <p class="radio-opt">
                         <input type="radio" id="rare" name="radio-group">
                         <label for="rare">Rare</label>
                       </p>
                 </div>  
 
                 <div class="flex-container">
-                  <p class="impact-level">Impact Level: </p>
-                  <p class="catastrophic-opt">
+                  <p class="radio-label-custom">Impact Level: </p>
+                  <p class="radio-opt">
                       <input type="radio" id="catastrophic" name="radio-group2">
                       <label for="catastrophic">Catastrophic</label>
                     </p>
-                    <p>
+                    <p class="radio-opt">
                       <input type="radio" id="major" name="radio-group2">
                       <label for="major">Major</label>
                     </p>
-                    <p>
+                    <p class="radio-opt">
                       <input type="radio" id="moderate" name="radio-group2">
                       <label for="moderate">Moderate</label>
                     </p>
-                    <p>
+                    <p class="radio-opt">
                       <input type="radio" id="minor" name="radio-group2">
                       <label for="minor">Minor</label>
                     </p>
-                    <p>
+                    <p class="radio-opt">
                       <input type="radio" id="insignificant" name="radio-group2">
                       <label for="insignificant">Insignificant</label>
                     </p>
@@ -937,53 +937,50 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                   <p>Risk Level: Very High</p>
 
                   <br>
-                  <p>Analyzed by: <strong>Amir Hasan 10-Jan-2017</strong></p>
-
-                  <br>
                   <h3 class="accor-head">Residual</h3>
                 <div class="flex-container">
-                    <p>Likelihood Level: </p>
-                    <p>
+                    <p class="radio-label-custom">Likelihood Level: </p>
+                    <p class="radio-opt">
                         <input type="radio" id="frequent2" name="radio-group3">
                         <label for="frequent2">Frequent</label>
                       </p>
-                      <p>
+                      <p class="radio-opt">
                         <input type="radio" id="likely2" name="radio-group3">
                         <label for="likely2">Likely</label>
                       </p>
-                      <p>
+                      <p class="radio-opt">
                         <input type="radio" id="possible2" name="radio-group3">
                         <label for="possible2">Possible</label>
                       </p>
-                      <p>
+                      <p class="radio-opt">
                         <input type="radio" id="unlikely2" name="radio-group3">
                         <label for="unlikely2">Unlikely</label>
                       </p>
-                      <p>
+                      <p class="radio-opt">
                         <input type="radio" id="rare2" name="radio-group3">
                         <label for="rare2">Rare</label>
                       </p>
                 </div>  
 
                 <div class="flex-container">
-                  <p class="impact-level">Impact Level: </p>
-                  <p>
+                  <p class="radio-label-custom">Impact Level: </p>
+                  <p class="radio-opt">
                       <input type="radio" id="catastrophic2" name="radio-group4">
                       <label for="catastrophic2">Catastrophic</label>
                     </p>
-                    <p>
+                    <p class="radio-opt">
                       <input type="radio" id="major2" name="radio-group4">
                       <label for="major2">Major</label>
                     </p>
-                    <p>
+                    <p class="radio-opt">
                       <input type="radio" id="moderate2" name="radio-group4">
                       <label for="moderate2">Moderate</label>
                     </p>
-                    <p>
+                    <p class="radio-opt">
                       <input type="radio" id="minor2" name="radio-group4">
                       <label for="minor2">Minor</label>
                     </p>
-                    <p>
+                    <p class="radio-opt">
                       <input type="radio" id="insignificant2" name="radio-group4">
                       <label for="insignificant2">Insignificant</label>
                     </p>
