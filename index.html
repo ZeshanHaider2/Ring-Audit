@@ -350,6 +350,32 @@ span.ag-header-cell-text {
       color: #808080fa;
     }
 
+            .hoverTable{
+              width:100%; 
+              border-collapse:collapse; 
+            }
+            .hoverTable td{ 
+              padding:7px;
+              text-align: center;
+            }
+            
+            /* Define the hover highlight color for the table row */
+              .hoverTable tr:hover {
+                    background-color: #b8d1f3;
+              }
+
+              #likelihood-scale thead {
+                  text-align: center;
+              }
+
+              #likelihood-scale a {
+                  margin-left: 10px;
+              }
+
+              #likelihood-scale a i{
+                  color: rgb(0, 153, 255);
+              }
+
   </style>
 </head>
 <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar"
@@ -552,7 +578,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
             <div id="myGrid" style="height: 600px; width:100%;" class="ag-theme-balham"></div>
         </div>
         
-        <div id="summary">
+        <div id="summary" class="tabcontent" style="display:block">
             <div id="total-div">
               <p class="total">Total: 120</p>
               <p class="high">High: 15 (5%)</p>
@@ -610,11 +636,11 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                   </div>
                   
                   <div class="divTableBody">
-                    <div class="divTableRow">
-                    <div class="divTableCell grayCell">Almost Certain 5</div><div class="divTableCell">Medium 5</div><div class="divTableCell yellowCell">High 10</div><div class="divTableCell redCell2">Very High 15</div><div class="divTableCell redCell">EXTREME 20</div><div class="divTableCell redCell">EXTREME 25</div></div>
-                    <div class="divTableRow">
-                    <div class="divTableCell grayCell">Likely 4</div><div class="divTableCell">Medium 4</div><div class="divTableCell">Medium 8</div><div class="divTableCell yellowCell">High 12</div><div class="divTableCell redCell2">Very High 16</div><div class="divTableCell redCell">EXTREME 20</div></div>
-                    <div class="divTableRow">
+                        <div class="divTableRow">
+                        <div class="divTableCell grayCell">Almost Certain 5</div><div class="divTableCell">Medium 5</div><div class="divTableCell yellowCell">High 10</div><div class="divTableCell redCell2">Very High 15</div><div class="divTableCell redCell">EXTREME 20</div><div class="divTableCell redCell">EXTREME 25</div></div>
+                        <div class="divTableRow">
+                        <div class="divTableCell grayCell">Likely 4</div><div class="divTableCell">Medium 4</div><div class="divTableCell">Medium 8</div><div class="divTableCell yellowCell">High 12</div><div class="divTableCell redCell2">Very High 16</div><div class="divTableCell redCell">EXTREME 20</div></div>
+                        <div class="divTableRow">
                         <div class="divTableCell grayCell">Moderate 3</div><div class="divTableCell greenCell2">Low 3</div><div class="divTableCell">Medium 6</div><div class="divTableCell">Medium 9</div><div class="divTableCell yellowCell">High 12</div><div class="divTableCell redCell2">Very High 15</div></div>
                         <div class="divTableRow">
                         <div class="divTableCell grayCell">Unlikely 2</div><div class="divTableCell greenCell">VERY Low 4</div><div class="divTableCell greenCell2">Low 6</div><div class="divTableCell">Medium 10</div><div class="divTableCell">Medium 12</div><div class="divTableCell">High 10</div></div>
@@ -672,19 +698,19 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                 <div class="divTableRow">
                     <div class="divTableHead grayCell blankCell"></div>
                     <div class="divTableHead grayCell">Insignificant 1</div>
-                  <div class="divTableHead grayCell">Consequence 2</div>
-                  <div class="divTableHead grayCell">Significant 3<span>&nbsp;&nbsp;</span></div>
-                  <div class="divTableHead grayCell">Major 4<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-                  <div class="divTableHead grayCell">Severe 5<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+                    <div class="divTableHead grayCell">Consequence 2</div>
+                    <div class="divTableHead grayCell">Significant 3<span>&nbsp;&nbsp;</span></div>
+                    <div class="divTableHead grayCell">Major 4<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+                    <div class="divTableHead grayCell">Severe 5<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
                 </div>
                 </div>
 
                   <div class="divTableBody">
-                    <div class="divTableRow">
-                    <div class="divTableCell grayCell">Almost Certain 5</div><div class="divTableCell">Medium 5</div><div class="divTableCell yellowCell">High 10</div><div class="divTableCell redCell2">Very High 15</div><div class="divTableCell redCell">EXTREME 20</div><div class="divTableCell redCell">EXTREME 25</div></div>
-                    <div class="divTableRow">
-                    <div class="divTableCell grayCell">Likely 4</div><div class="divTableCell">Medium 4</div><div class="divTableCell">Medium 8</div><div class="divTableCell yellowCell">High 12</div><div class="divTableCell redCell2">Very High 16</div><div class="divTableCell redCell">EXTREME 20</div></div>
-                    <div class="divTableRow">
+                        <div class="divTableRow">
+                        <div class="divTableCell grayCell">Almost Certain 5</div><div class="divTableCell">Medium 5</div><div class="divTableCell yellowCell">High 10</div><div class="divTableCell redCell2">Very High 15</div><div class="divTableCell redCell">EXTREME 20</div><div class="divTableCell redCell">EXTREME 25</div></div>
+                        <div class="divTableRow">
+                        <div class="divTableCell grayCell">Likely 4</div><div class="divTableCell">Medium 4</div><div class="divTableCell">Medium 8</div><div class="divTableCell yellowCell">High 12</div><div class="divTableCell redCell2">Very High 16</div><div class="divTableCell redCell">EXTREME 20</div></div>
+                        <div class="divTableRow">
                         <div class="divTableCell grayCell">Moderate 3</div><div class="divTableCell greenCell2">Low 3</div><div class="divTableCell">Medium 6</div><div class="divTableCell">Medium 9</div><div class="divTableCell yellowCell">High 12</div><div class="divTableCell redCell2">Very High 15</div></div>
                         <div class="divTableRow">
                         <div class="divTableCell grayCell">Unlikely 2</div><div class="divTableCell greenCell">VERY Low 4</div><div class="divTableCell greenCell2">Low 6</div><div class="divTableCell">Medium 10</div><div class="divTableCell">Medium 12</div><div class="divTableCell">High 10</div></div>
@@ -718,7 +744,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
               <div id="myGrid2" style="height: 600px; width:100%;" class="ag-theme-balham"></div>
           </div>
           
-          <div id="summary2">
+          <div id="summary2" class="tabcontent" style="display:block">
                   <p>No Data</p>
            </div>
             
@@ -736,8 +762,8 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                 <button class="tablinks" onclick="openCity(event, 'likelihood-scale')">Likelihood Scale</button>
         </div>
         
-        <div id="summary3">
-          <p>No Data is Available</p>
+        <div id="summary3" class="tabcontent" style="display:block">
+          <p>No Data</p>
         </div>  
 
         <div id="matrix3" class="tabcontent">
@@ -819,19 +845,19 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                 <div class="divTableRow">
                     <div class="divTableHead grayCell blankCell"></div>
                     <div class="divTableHead grayCell">Insignificant 1</div>
-                  <div class="divTableHead grayCell">Consequence 2</div>
-                  <div class="divTableHead grayCell">Significant 3<span>&nbsp;&nbsp;</span></div>
-                  <div class="divTableHead grayCell">Major 4<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-                  <div class="divTableHead grayCell">Severe 5<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+                    <div class="divTableHead grayCell">Consequence 2</div>
+                    <div class="divTableHead grayCell">Significant 3<span>&nbsp;&nbsp;</span></div>
+                    <div class="divTableHead grayCell">Major 4<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+                    <div class="divTableHead grayCell">Severe 5<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
                 </div>
                 </div>
 
                   <div class="divTableBody">
-                    <div class="divTableRow">
-                    <div class="divTableCell grayCell">Almost Certain 5</div><div class="divTableCell">Medium 5</div><div class="divTableCell yellowCell">High 10</div><div class="divTableCell redCell2">Very High 15</div><div class="divTableCell redCell">EXTREME 20</div><div class="divTableCell redCell">EXTREME 25</div></div>
-                    <div class="divTableRow">
-                    <div class="divTableCell grayCell">Likely 4</div><div class="divTableCell">Medium 4</div><div class="divTableCell">Medium 8</div><div class="divTableCell yellowCell">High 12</div><div class="divTableCell redCell2">Very High 16</div><div class="divTableCell redCell">EXTREME 20</div></div>
-                    <div class="divTableRow">
+                        <div class="divTableRow">
+                        <div class="divTableCell grayCell">Almost Certain 5</div><div class="divTableCell">Medium 5</div><div class="divTableCell yellowCell">High 10</div><div class="divTableCell redCell2">Very High 15</div><div class="divTableCell redCell">EXTREME 20</div><div class="divTableCell redCell">EXTREME 25</div></div>
+                        <div class="divTableRow">
+                        <div class="divTableCell grayCell">Likely 4</div><div class="divTableCell">Medium 4</div><div class="divTableCell">Medium 8</div><div class="divTableCell yellowCell">High 12</div><div class="divTableCell redCell2">Very High 16</div><div class="divTableCell redCell">EXTREME 20</div></div>
+                        <div class="divTableRow">
                         <div class="divTableCell grayCell">Moderate 3</div><div class="divTableCell greenCell2">Low 3</div><div class="divTableCell">Medium 6</div><div class="divTableCell">Medium 9</div><div class="divTableCell yellowCell">High 12</div><div class="divTableCell redCell2">Very High 15</div></div>
                         <div class="divTableRow">
                         <div class="divTableCell grayCell">Unlikely 2</div><div class="divTableCell greenCell">VERY Low 4</div><div class="divTableCell greenCell2">Low 6</div><div class="divTableCell">Medium 10</div><div class="divTableCell">Medium 12</div><div class="divTableCell">High 10</div></div>
@@ -840,16 +866,47 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                 </div>
             </div>
         </div>
+      </div>
 
          <div id="impact-scale" class="tabcontent">
-          <p>No Data is Available</p>
+          <p>No Data</p>
         </div>
 
         <div id="likelihood-scale" class="tabcontent">
-          <p>No Data is Available</p>
+            
+          <table class="hoverTable table">
+              <thead>
+                  <tr>
+                    <th>Rating</th>
+                    <th>Descriptor</th>
+                    <th>Definition</th>
+                    <th>Probability</th>
+                    <th>Indicative Frequency</th>
+                  </tr>
+              </thead>
+            <tbody>
+                <tr>
+                    <td>5</td><td>Almost certain</td><td>The consequence is expected to occur on an annual basis </td><td>Every year or more frequently</td><td>90-100%<a href="#"><i class="fa fa-edit"></i></a></td>
+                  </tr>
+                  <tr>
+                    <td>4</td><td>Likely</td><td>The event has occurred several times or more throughout history of the organization</td><td>Every three years</td><td>50-90%<a href="#"><i class="fa fa-edit"></i></a></td>
+                  </tr>
+                  <tr>
+                    <td>3</td><td>Possible</td><td>The event might occur once in the organization</td><td>Every ten years</td><td>10-50%<a href="#"><i class="fa fa-edit"></i></a></td>
+                  </tr>
+                  <tr>
+                      <td>2</td><td>Unlikely</td><td>The event does occur from time to time</td><td>Every thirty years</td><td>0%<a href="#"><i class="fa fa-edit"></i></a></td>
+                  </tr>
+                  <tr>
+                      <td>1</td><td>Very Unlikely</td><td>Heard of something like that occurring elsewhere</td><td>Every 100 years</td><td>0%<a href="#"><i class="fa fa-edit"></i></a></td>
+                  </tr>
+            </tbody>
+            
+          </table>
+          
         </div>
           
-      </div>
+      
         
               
       </div>
