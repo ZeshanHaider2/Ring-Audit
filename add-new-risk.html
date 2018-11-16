@@ -118,6 +118,11 @@ input[type=submit]:hover, input[type=button]:hover {
     .flex-container{
       display: block;
     }
+
+    .modal-content {
+      position: relative;
+      right: 210px; 
+    }
 }
 
 
@@ -236,6 +241,266 @@ h3.accor-head {
     border-bottom: none;
     float: right;
 }
+
+select#category {
+    width: 50%;
+}
+
+select#classification {
+    width: 50%;
+}
+
+select#status {
+    width: 50%;
+}
+
+select#oversight {
+    width: 50%;
+}
+
+select#owner {
+    width: 50%;
+}
+
+select#source {
+    width: 50%;
+}
+
+.row {
+    border-bottom: 0.5px solid #c7c6c6;
+    padding-bottom: 15px;
+}
+
+p.impact-level {
+    margin-right: 41px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    margin-left: 350px;
+    padding: 0;
+    border: 1px solid #888;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #24a1ec;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;
+    padding-top: 10px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #24a1ec;
+    color: white;
+}
+
+.arrow {
+    color: #8080808a;
+    font-weight: bold;
+    text-align: right;
+}
+
+
+
+.arrow2 {
+    color: #000000;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.arrow2 p {
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 7px;
+    font-weight: bold;
+}
+
+.triangle-up {
+  margin: auto;
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid #4242428a;
+}
+
+@media screen and (max-width: 1318px) {
+    .arrow {
+        display: none;
+    }
+  }
+
+   @media screen and (max-width: 1318px){
+     .arrow2 p, .triangle-up{
+       display: none;
+     }
+   }
+
+  div.blueTable {
+        border: 2px solid #E7E7E7;
+        background-color: #E7E7E7;
+        width: 100%;
+        text-align: left;
+        border-collapse: collapse;
+      }
+
+
+.divTableHead, .divTableCell {
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+
+.divTable.blueTable .divTableCell, .divTable.blueTable .divTableHead {
+  border: 8px solid #FFFFFF;
+  padding: 9px 5px;
+}
+.divTable.blueTable .divTableBody .divTableCell {
+  font-size: 11px;
+  font-weight: normal;
+  color: #fff;
+  background: #EFBA46;
+}
+
+.grayCell{
+  box-shadow: 10px 10px 5px #80808017 !important;
+  background: #E7E7E7 !important;
+  color: rgba(28, 28, 28, 0.76) !important;
+ }
+
+ .redCell{
+  background:#AD4739 !important;
+ }
+
+ .greenCell{
+  background: #8AB353 !important;
+ }
+
+ .greenCell2{
+  background: #C3CB51 !important;
+ }
+
+.yellowCell{
+  background: #ED9B38 !important;
+ }
+
+ .redCell2{
+  background: #D75847 !important;
+ }
+
+
+.divTable.blueTable .divTableHeading .divTableHead {
+  font-size: 11px;
+  font-weight: normal;
+  
+}
+.blueTable .tableFootStyle {
+  font-size: 14px;
+}
+.blueTable .tableFootStyle .links {
+	 text-align: right;
+}
+.blueTable .tableFootStyle .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+.blueTable.outerTableFooter {
+  border-top: none;
+}
+.blueTable.outerTableFooter .tableFootStyle {
+  padding: 3px 5px; 
+}
+/* DivTable.com */
+.divTable{ display: table; }
+.divTableRow { display: table-row; }
+.divTableHeading { display: table-header-group;}
+.divTableCell, .divTableHead { display: table-cell;}
+.divTableHeading { display: table-header-group;}
+.divTableFoot { display: table-footer-group;}
+.divTableBody { display: table-row-group;}
+
+.blankCell{
+  background: #fff !important;
+}
+      
+#residual{
+  margin-top: 55px;
+} 
+
+.flex-container2 {
+  display: flex;
+  margin-left: 15px;
+}
+
+   #consequence{
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 10px;
+      color: #808080fa;
+      }
+
+    .subtext{
+        font-size: 9px !important;
+        text-align: center;
+        text-transform: uppercase;
+        color: #808080fa;
+      }
   </style>
 </head>
 <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar"
@@ -532,13 +797,90 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                    
               </div>
               <button class="accordion">Risk Analysis</button>
+              
               <div class="panel">
                   <div class="links">
-                      <button class="tab-links"><a href="#">Risk Matrix</a></button>
+                      <button class="tab-links"><a id="myPopup" href="#">Risk Matrix</a></button>
                       <button class="tab-links"><a href="#">Impact Scale</a></button>
                       <button class="tab-links"><a href="#">Likelihood Scale</a></button>
                       <button class="tab-links"><a href="#">History</a></button>
                   </div>
+                  
+                      <div id="myModal" class="modal">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <span class="close">&times;</span>
+                          </div>
+                          <div class="modal-body">
+                                <h6 id="consequence">Consequence</h6>
+                                <h6 class="subtext">How severe the outcomes be if the risk event occured?</h6>
+                                <div class="arrow"> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -></div>
+                                <div class="flex-container2">
+
+                                    <div class="arrow2">
+                                        <div class="flex-container2">
+                                          <div><img src="images/arrow2label.png" alt="arrow2label"></div>
+                                          <div>
+                                              <div class="triangle-up"></div>
+                                              <p>|</p>
+                                              <p>|</p>
+                                              <p>|</p>
+                                              <p>|</p>
+                                              <p>|</p>
+                                              <p>|</p>
+                                              <p>|</p>
+                                              <p>|</p>
+                                              <p>|</p>
+                                              <p>|</p>
+                                              <p>|</p>
+                                              <p>|</p>
+                                              <p>|</p>
+                                              <p>|</p>
+                                              <p>|</p>
+                                              <p>|</p>
+                                              <p>|</p>
+                                              <p>|</p>
+                                              <p>|</p>
+                                              <p>|</p>
+                                              <p>|</p>
+                                              <p>|</p>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                    <div class="divTable blueTable">
+                                      <div class="divTableHeading">
+                                      <div class="divTableRow">
+                                          <div class="divTableHead grayCell blankCell"></div>
+                                          <div class="divTableHead grayCell">Insignificant 1</div>
+                                        <div class="divTableHead grayCell">Consequence 2</div>
+                                        <div class="divTableHead grayCell">Significant 3<span>&nbsp;&nbsp;</span></div>
+                                        <div class="divTableHead grayCell">Major 4<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+                                        <div class="divTableHead grayCell">Severe 5<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+                                      </div>
+                                      </div>
+
+                                        <div class="divTableBody">
+                                          <div class="divTableRow">
+                                          <div class="divTableCell grayCell">Almost Certain 5</div><div class="divTableCell">Medium 5</div><div class="divTableCell yellowCell">High 10</div><div class="divTableCell redCell2">Very High 15</div><div class="divTableCell redCell">EXTREME 20</div><div class="divTableCell redCell">EXTREME 25</div></div>
+                                          <div class="divTableRow">
+                                          <div class="divTableCell grayCell">Likely 4</div><div class="divTableCell">Medium 4</div><div class="divTableCell">Medium 8</div><div class="divTableCell yellowCell">High 12</div><div class="divTableCell redCell2">Very High 16</div><div class="divTableCell redCell">EXTREME 20</div></div>
+                                          <div class="divTableRow">
+                                              <div class="divTableCell grayCell">Moderate 3</div><div class="divTableCell greenCell2">Low 3</div><div class="divTableCell">Medium 6</div><div class="divTableCell">Medium 9</div><div class="divTableCell yellowCell">High 12</div><div class="divTableCell redCell2">Very High 15</div></div>
+                                              <div class="divTableRow">
+                                              <div class="divTableCell grayCell">Unlikely 2</div><div class="divTableCell greenCell">VERY Low 4</div><div class="divTableCell greenCell2">Low 6</div><div class="divTableCell">Medium 10</div><div class="divTableCell">Medium 12</div><div class="divTableCell">High 10</div></div>
+                                              <div class="divTableRow">
+                                              <div class="divTableCell grayCell">Rare 1</div><div class="divTableCell greenCell">VERY LOW 1</div><div class="divTableCell greenCell">Very Low 2</div><div class="divTableCell greenCell2">Low 3</div><div class="divTableCell">Medium 4</div><div class="divTableCell">Medium 5</div></div>
+                                      </div>
+                                      
+                                    </div>
+                                
+                                </div>
+                          </div>
+                          
+                        </div>
+                      </div>
                 <h3 class="accor-head">Inherent</h3>
                 <div class="flex-container">
                     <p>Likelihood Level: </p>
@@ -565,8 +907,8 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                 </div>  
 
                 <div class="flex-container">
-                  <p>Impact Level: </p>
-                  <p>
+                  <p class="impact-level">Impact Level: </p>
+                  <p class="catastrophic-opt">
                       <input type="radio" id="catastrophic" name="radio-group2">
                       <label for="catastrophic">Catastrophic</label>
                     </p>
@@ -624,7 +966,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                 </div>  
 
                 <div class="flex-container">
-                  <p>Impact Level: </p>
+                  <p class="impact-level">Impact Level: </p>
                   <p>
                       <input type="radio" id="catastrophic2" name="radio-group4">
                       <label for="catastrophic2">Catastrophic</label>
@@ -731,6 +1073,33 @@ for (i = 0; i < acc.length; i++) {
       panel.style.maxHeight = panel.scrollHeight + "px";
     } 
   });
+}
+
+
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myPopup");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
   </script>
   <!-- BEGIN VENDOR JS-->
