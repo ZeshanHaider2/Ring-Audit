@@ -76,7 +76,7 @@
         font-weight: bold;
       }
 
-      #summary, #matrix3{
+      #summary, #matrix3, #impact-scale{
         overflow: scroll;
       }
 
@@ -94,8 +94,14 @@
     font-weight: normal;
 }
 
+.divTableHead2{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 11px;
+}
 
-.divTable.blueTable .divTableCell, .divTable.blueTable .divTableHead {
+
+.divTable.blueTable .divTableCell, .divTable.blueTable .divTableHead,.divTableHead2 {
   border: 8px solid #FFFFFF;
   padding: 9px 5px;
 }
@@ -161,7 +167,7 @@
 .divTable{ display: table; }
 .divTableRow { display: table-row; }
 .divTableHeading { display: table-header-group;}
-.divTableCell, .divTableHead { display: table-cell;}
+.divTableCell, .divTableHead, .divTableHead2 { display: table-cell;}
 .divTableHeading { display: table-header-group;}
 .divTableFoot { display: table-footer-group;}
 .divTableBody { display: table-row-group;}
@@ -356,16 +362,11 @@ span.ag-header-cell-text {
             }
             .hoverTable td{ 
               padding:7px;
-              text-align: center;
             }
             
             /* Define the hover highlight color for the table row */
               .hoverTable tr:hover {
                     background-color: #b8d1f3;
-              }
-
-              #likelihood-scale thead {
-                  text-align: center;
               }
 
               #likelihood-scale a {
@@ -422,6 +423,11 @@ span.ag-header-cell-text {
 
 .sever {
     margin-top: 10px;
+}
+
+.i-f {
+    display: inline-block;
+    width: 70px !important;
 }
   </style>
 </head>
@@ -916,170 +922,38 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
       </div>
 
          <div id="impact-scale" class="tabcontent">
-           <div class="sever">
-              <h5>Sever - 5</h5>
-              <button class="accordion">Financial Impact</button>
-              <div class="panel">
-                <p>&gt;$3m</p>
-              </div>
-
-              <button class="accordion">People Effects</button>
-              <div class="panel">
-                <p>One or more fatalities or severe irreversible disability to one or more people</p>
-              </div>
-
-              <button class="accordion">Reputation</button>
-              <div class="panel">
-                <p>National media coverage; Significant impact on funding  for several years; long-term loss of clients </p>
-              </div>
-
-              <button class="accordion">Service Outputs</button>
-              <div class="panel">
-                <p>Total cessation of multiple services for many months</p>
-              </div>
-
-              <button class="accordion">Legal Compliance</button>
-              <div class="panel">
-                <p>Major litigation costing $>3m; Investigation by regulatory body resulting in long term interruption of operations</p>
-              </div>
-
-              <button class="accordion">Management Impact</button>
-              <div class="panel">
-                <p>Restructuring of organisation with loss of many senior managers</p>
-              </div>
-           </div>
-           <hr>
-           <div class="major">
-              <h5>Major - 4</h5>
-              <button class="accordion">Financial Impact</button>
-              <div class="panel">
-                <p>$1m - $3m</p>
-              </div>
-
-              <button class="accordion">People Effects</button>
-              <div class="panel">
-                <p>Extensive injury or impairment to one or more persons</p>
-              </div>
-
-              <button class="accordion">Reputation</button>
-              <div class="panel">
-                <p>State media coverage; CEO departs affecting funding or causing loss of clients for many months</p>
-              </div>
-
-              <button class="accordion">Service Outputs</button>
-              <div class="panel">
-                <p>Disruption of multiple services for several months</p>
-              </div>
-
-              <button class="accordion">Legal Compliance</button>
-              <div class="panel">
-                <p>Major breach of regulation with punitive fine, and significant litigation involving many weeks of senior management time and up to $3m legal costs</p>
-              </div>
-
-              <button class="accordion">Management Impact</button>
-              <div class="panel">
-                <p>Significant disruption that will require considerable senior management time over several weeks </p>
-              </div>
-           </div>
-           <hr>
-           <div class="significant">
-              <h5>Significant - 3</h5>
-              <button class="accordion">Financial Impact</button>
-              <div class="panel">
-                <p>$300k - $999k</p>
-              </div>
-
-              <button class="accordion">People Effects</button>
-              <div class="panel">
-                <p>Short term disability to one or more persons</p>
-              </div>
-
-              <button class="accordion">Reputation</button>
-              <div class="panel">
-                <p>Local media coverage over several days; senior managers depart; noticeable loss of clients for many months</p>
-              </div>
-
-              <button class="accordion">Service Outputs</button>
-              <div class="panel">
-                <p>Total cessation of one service for a few months</p>
-              </div>
-
-              <button class="accordion">Legal Compliance</button>
-              <div class="panel">
-                <p>Breach of regulation with investigation by authority and possible moderate fine, and litigation and legal costs up to $999k</p>
-              </div>
-
-              <button class="accordion">Management Impact</button>
-              <div class="panel">
-                <p>Disruption that will require senior management time over several weeks </p>
-              </div>
-           </div>
-           <hr>
-           <div class="consequence">
-              <h5>Consequence - 2</h5>
-              <button class="accordion">Financial Impact</button>
-              <div class="panel">
-                <p>$10k - $299k</p>
-              </div>
-
-              <button class="accordion">People Effects</button>
-              <div class="panel">
-                <p>Significant medical treatment; lost injury time &lt; 2 weeks</p>
-              </div>
-
-              <button class="accordion">Reputation</button>
-              <div class="panel">
-                <p>Local media coverage, and complaint to management</p>
-              </div>
-
-              <button class="accordion">Service Outputs</button>
-              <div class="panel">
-                <p>Some service disruption in the area</p>
-              </div>
-
-              <button class="accordion">Legal Compliance</button>
-              <div class="panel">
-                <p>Breach of regulations; major fine or legal costs; minor litigation</p>
-              </div>
-
-              <button class="accordion">Management Impact</button>
-              <div class="panel">
-                <p>Will require some senior management time over many days </p>
-              </div>
-           </div>
-           <hr>
-           <div class="insignificant">
-              <h5>Insignificant - 1</h5>
-              <button class="accordion">Financial Impact</button>
-              <div class="panel">
-                <p>&lt;$10k</p>
-              </div>
-
-              <button class="accordion">People Effects</button>
-              <div class="panel">
-                <p>First aid or minor medical treatment</p>
-              </div>
-
-              <button class="accordion">Reputation</button>
-              <div class="panel">
-                <p>No media coverage; complaint to employee</p>
-              </div>
-
-              <button class="accordion">Service Outputs</button>
-              <div class="panel">
-                <p>Minimal disruption</p>
-              </div>
-
-              <button class="accordion">Legal Compliance</button>
-              <div class="panel">
-                <p>Minor legal issues or breach of regulations</p>
-              </div>
-
-              <button class="accordion">Management Impact</button>
-              <div class="panel">
-                <p>Will require some management attention over several days</p>
-              </div>
-           </div>
+            <h5>Illustrative Consequence Rating Scale</h5>
+            <p>The categories below are a guide only – the organization should adopt categories specific to its risk universe. </p>
+            <div id="detail-table" class="divTable blueTable">
+                <div class="divTableHeading">
+                <div class="divTableRow">
+                <div class="divTableHead2 grayCell blankCell"></div>
+                <div class="divTableHead2 grayCell">Consequence Rating<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+                <div class="divTableHead2 grayCell">Financial Impact<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+                <div class="divTableHead2 grayCell">People Effects</div>
+                <div class="divTableHead2 grayCell">Reputation</div>
+                <div class="divTableHead2 grayCell">Service Outputs</div>
+                <div class="divTableHead2 grayCell">Legal & Compliance</div>
+                <div class="divTableHead2 grayCell">Management Impact</div>
+                </div>
+                </div>
+                
+                <div class="divTableBody">
+                <div class="divTableRow">
+                <div class="divTableCell grayCell blankCell"></div><div class="divTableCell grayCell">5</div><div class="divTableCell grayCell">&gt;$3m</div><div class="divTableCell grayCell">One or more fatalities or severe irreversible disability to one or more people </div><div class="divTableCell grayCell">National media coverage; Significant impact on funding  for several years; long-term loss of clients </div><div class="divTableCell grayCell">Total cessation of multiple services for many months</div><div class="divTableCell grayCell">Major litigation costing $>3m; Investigation by regulatory body resulting in long term interruption of operations</div><div class="divTableCell grayCell">Restructuring of organisation with loss of many senior managers </div></div>
+                <div class="divTableRow">
+                <div class="divTableCell grayCell blankCell"></div><div class="divTableCell grayCell">4</div><div class="divTableCell grayCell">$1m - $3m</div><div class="divTableCell grayCell">Extensive injury or impairment to one or more persons</div><div class="divTableCell grayCell">State media coverage; CEO departs affecting funding or causing loss of clients for many months</div><div class="divTableCell grayCell">Disruption of multiple services for several months</div><div class="divTableCell grayCell">Major breach of regulation with punitive fine, and significant litigation involving many weeks of senior management time and up to $3m legal costs</div><div class="divTableCell grayCell">Significant disruption that will require considerable senior management time over several weeks </div></div>
+                <div class="divTableRow">
+                    <div class="divTableCell grayCell blankCell"></div><div class="divTableCell grayCell">3</div><div class="divTableCell grayCell">$300k - $999k</div><div class="divTableCell grayCell">Short term disability to one or more persons</div><div class="divTableCell grayCell">Local media coverage over several days; senior managers depart; noticeable loss of clients for many months</div><div class="divTableCell grayCell">Total cessation of one service for a few months</div><div class="divTableCell grayCell">Breach of regulation with investigation by authority and possible moderate fine, and litigation and legal costs up to $999k</div><div class="divTableCell grayCell">Disruption that will require senior management time over several weeks </div></div>
+                <div class="divTableRow">
+                    <div class="divTableCell grayCell blankCell"></div><div class="divTableCell grayCell">2</div><div class="divTableCell grayCell">$10k - $299k</div><div class="divTableCell grayCell">Significant medical treatment; lost injury time &lt;2 weeks</div><div class="divTableCell grayCell">Local media coverage, and complaint to management</div><div class="divTableCell grayCell">Some service disruption in the area</div><div class="divTableCell grayCell">Breach of regulations; major fine or legal costs; minor litigation</div><div class="divTableCell grayCell">Will require some senior management time over many days </div></div>
+                <div class="divTableRow">
+                    <div class="divTableCell grayCell blankCell"></div><div class="divTableCell grayCell">1</div><div class="divTableCell grayCell">&lt;$10k</div><div class="divTableCell grayCell">First aid or minor medical treatment</div><div class="divTableCell grayCell">No media coverage; complaint to employee</div><div class="divTableCell grayCell">Minimal disruption</div><div class="divTableCell grayCell">Minor legal issues or breach of regulations</div><div class="divTableCell grayCell">Will require some management attention over several days</div></div>
+                
+                </div>
+                
+            </div>
+          
         </div>
           
 
@@ -1097,19 +971,19 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
               </thead>
             <tbody>
                 <tr>
-                    <td>5</td><td>Almost certain</td><td>The consequence is expected to occur on an annual basis </td><td>Every year or more frequently</td><td>90-100%<a href="#"><i class="fa fa-edit"></i></a></td>
+                    <td>5</td><td>Almost certain</td><td>The consequence is expected to occur on an annual basis </td><td>Every year or more frequently</td><td><div class="i-f">90-100%</div><a href="#"><i class="fa fa-edit"></i></a></td>
                   </tr>
                   <tr>
-                    <td>4</td><td>Likely</td><td>The event has occurred several times or more throughout history of the organization</td><td>Every three years</td><td>50-90%<a href="#"><i class="fa fa-edit"></i></a></td>
+                    <td>4</td><td>Likely</td><td>The event has occurred several times or more throughout history of the organization</td><td>Every three years</td><td><div class="i-f">50-90%</div><a href="#"><i class="fa fa-edit"></i></a></td>
                   </tr>
                   <tr>
-                    <td>3</td><td>Possible</td><td>The event might occur once in the organization</td><td>Every ten years</td><td>10-50%<a href="#"><i class="fa fa-edit"></i></a></td>
+                    <td>3</td><td>Possible</td><td>The event might occur once in the organization</td><td>Every ten years</td><td><div class="i-f">10-50%</div><a href="#"><i class="fa fa-edit"></i></a></td>
                   </tr>
                   <tr>
-                      <td>2</td><td>Unlikely</td><td>The event does occur from time to time</td><td>Every thirty years</td><td>0%<a href="#"><i class="fa fa-edit"></i></a></td>
+                      <td>2</td><td>Unlikely</td><td>The event does occur from time to time</td><td>Every thirty years</td><td><div class="i-f">0%</div><a href="#"><i class="fa fa-edit"></i></a></td>
                   </tr>
                   <tr>
-                      <td>1</td><td>Very Unlikely</td><td>Heard of something like that occurring elsewhere</td><td>Every 100 years</td><td>0%<a href="#"><i class="fa fa-edit"></i></a></td>
+                      <td>1</td><td>Very Unlikely</td><td>Heard of something like that occurring elsewhere</td><td>Every 100 years</td><td><div class="i-f">0%</div><a href="#"><i class="fa fa-edit"></i></a></td>
                   </tr>
             </tbody>
             
