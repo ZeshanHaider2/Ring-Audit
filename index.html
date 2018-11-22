@@ -69,6 +69,7 @@
 
       .subtext{
         font-size: 9px !important;
+        text-transform: capitalize !important;
       }
 
       .myGrid-div h5{
@@ -363,6 +364,9 @@ span.ag-header-cell-text {
             .hoverTable td{ 
               padding:7px;
             }
+            .hoverTable th {
+                padding-left: 5px !important;
+            }
             
             /* Define the hover highlight color for the table row */
               .hoverTable tr:hover {
@@ -553,6 +557,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                 <a class="dropdown-item" href="email-application.html"><i class="ft-user"></i> Switch Role</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="lock-screen.html"><i class="ft-lock"></i> Lock Screen</a>
+                <a class="dropdown-item" href="change-password.html"><i class="ft-lock"></i> Change Password</a>
                 <a class="dropdown-item" href="login-with-bg-image.html"><i class="ft-power"></i> Logout</a>
               </div>
             </li>
@@ -568,8 +573,6 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
         <li class=" navigation-header">
           <span>Audit Universe</span><i class=" ft-minus" data-toggle="tooltip" data-placement="right"
           data-original-title="General"></i>
-        </li>
-        <li class=" nav-item"><a href="assessment-factors.html"><i class="ft-grid"></i><span class="menu-title" data-i18n="">Assessment Factors</span></a>
         </li>
         <li class=" nav-item"><a href="#"><i class="ft-align-left"></i><span class="menu-title" data-i18n="">Summary</span></a>
         </li>
@@ -591,15 +594,11 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
         </li>
         <li class=" nav-item"><a href="#"><i class="ft-bar-chart-2"></i><span class="menu-title" data-i18n="">Assessments</span></a>
           <ul class="menu-content">
-            <li><a class="menu-item" href="#">Summary</a>
-            </li>
-            <li><a class="menu-item" href="#">Assessment Factors</a>
-            </li>
-            <li><a class="menu-item" href="#">List</a>
-            </li>
+              <li><a class="menu-item" href="assessment-factors.html">Factors</a>
+              </li>
+              <li><a class="menu-item" href="#">Assessments</a>
+              </li>
           </ul>
-        </li>
-        <li class=" nav-item"><a href="change-password.html"><i class="ft-lock"></i><span class="menu-title" data-i18n="">Change Password</span></a>
         </li>
         <li class=" nav-item"><a href="#"><i class="ft-grid"></i><span class="menu-title" data-i18n="">Document Library</span></a>
         </li>
@@ -839,23 +838,23 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                 
                 <div class="divTableBody">
                 <div class="divTableRow">
-                <div class="divTableCell grayCell blankCell"></div><div class="divTableCell greenCell">VERY LOW</div><div class="divTableCell grayCell"></div><div class="divTableCell grayCell">Acceptable risk. The service can be used with the identified threats, but the
+                <div class="divTableCell grayCell blankCell"></div><div class="divTableCell greenCell">VERY LOW</div><div class="divTableCell grayCell">>=1-2</div><div class="divTableCell grayCell">Acceptable risk. The service can be used with the identified threats, but the
                     threats must be observed to discover changes that could increase the risk level.</div></div>
                 <div class="divTableRow">
-                <div class="divTableCell grayCell blankCell"></div><div class="divTableCell greenCell2">Low</div><div class="divTableCell grayCell"></div><div class="divTableCell grayCell">Acceptable risk. The service can be used with the identified threats, but the
+                <div class="divTableCell grayCell blankCell"></div><div class="divTableCell greenCell2">Low</div><div class="divTableCell grayCell">>=3-4</div><div class="divTableCell grayCell">Acceptable risk. The service can be used with the identified threats, but the
                     threats must be observed to discover changes that could increase the risk level.</div></div>
                 <div class="divTableRow">
-                <div class="divTableCell grayCell blankCell"></div><div class="divTableCell">Medium</div><div class="divTableCell grayCell"></div><div class="divTableCell grayCell">The risk can be acceptable for this service, but for each threat the development
+                <div class="divTableCell grayCell blankCell"></div><div class="divTableCell">Medium</div><div class="divTableCell grayCell">>=4-9</div><div class="divTableCell grayCell">The risk can be acceptable for this service, but for each threat the development
                     of the risk must be monitored on a regular basis, with a following consideration
                     whether necessary measures have to be implemented.</div></div>
                 <div class="divTableRow">
-                <div class="divTableCell grayCell blankCell"></div><div class="divTableCell yellowCell">High</div><div class="divTableCell grayCell"></div><div class="divTableCell grayCell">Not acceptable risk. Can not start using the service before risk reducing
+                <div class="divTableCell grayCell blankCell"></div><div class="divTableCell yellowCell">High</div><div class="divTableCell grayCell">>=10-12</div><div class="divTableCell grayCell">Not acceptable risk. Can not start using the service before risk reducing
                     treatment has been implemented. </div></div>
                 <div class="divTableRow">
-                <div class="divTableCell grayCell blankCell"></div><div class="divTableCell redCell">VERY High</div><div class="divTableCell grayCell"></div><div class="divTableCell grayCell">Not acceptable risk. Can not start using the service before risk reducing
+                <div class="divTableCell grayCell blankCell"></div><div class="divTableCell redCell">VERY High</div><div class="divTableCell grayCell">>=15-16</div><div class="divTableCell grayCell">Not acceptable risk. Can not start using the service before risk reducing
                     treatment has been implemented. </div></div>
                 <div class="divTableRow">
-                <div class="divTableCell grayCell blankCell"></div><div class="divTableCell redCell2">EXTREME</div><div class="divTableCell grayCell"></div><div class="divTableCell grayCell">Not acceptable risk. Can not start using the service before risk reducing
+                <div class="divTableCell grayCell blankCell"></div><div class="divTableCell redCell2">EXTREME</div><div class="divTableCell grayCell">>=20-25</div><div class="divTableCell grayCell">Not acceptable risk. Can not start using the service before risk reducing
                         treatment has been implemented. </div></div>
                 </div>
                 
@@ -919,7 +918,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                         <div class="divTableRow">
                         <div class="divTableCell grayCell">Moderate 3</div><div class="divTableCell greenCell2">Low 3</div><div class="divTableCell">Medium 6</div><div class="divTableCell">Medium 9</div><div class="divTableCell yellowCell">High 12</div><div class="divTableCell redCell2">Very High 15</div></div>
                         <div class="divTableRow">
-                        <div class="divTableCell grayCell">Unlikely 2</div><div class="divTableCell greenCell">VERY Low 4</div><div class="divTableCell greenCell2">Low 6</div><div class="divTableCell">Medium 10</div><div class="divTableCell">Medium 12</div><div class="divTableCell">High 10</div></div>
+                        <div class="divTableCell grayCell">Unlikely 2</div><div class="divTableCell greenCell">VERY Low 2</div><div class="divTableCell greenCell2">Low 4</div><div class="divTableCell">Medium 6</div><div class="divTableCell">Medium 8</div><div class="divTableCell">High 10</div></div>
                         <div class="divTableRow">
                         <div class="divTableCell grayCell">Rare 1</div><div class="divTableCell greenCell">VERY LOW 1</div><div class="divTableCell greenCell">Very Low 2</div><div class="divTableCell greenCell2">Low 3</div><div class="divTableCell">Medium 4</div><div class="divTableCell">Medium 5</div></div>
                 </div>
@@ -928,8 +927,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
       </div>
 
          <div id="impact-scale" class="tabcontent">
-            <h5>Illustrative Consequence Rating Scale</h5>
-            <p>The categories below are a guide only – the organization should adopt categories specific to its risk universe. </p>
+            <h5><strong>Illustrative Consequence Rating Scale</strong> (Last updated 15-Nov-2018 by Mansoor Khan)</h5>
             <div id="detail-table" class="divTable blueTable">
                 <div class="divTableHeading">
                 <div class="divTableRow">
@@ -964,7 +962,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
           
 
         <div id="likelihood-scale" class="tabcontent">
-          <h5><strong>Illustrative Likelihood Rating/Scale</strong></h5> <p>(Last updated 15-Nov-2018 by Mansoor Khan)</p>
+          <h5><strong>Illustrative Likelihood Rating/Scale</strong> (Last updated 15-Nov-2018 by Mansoor Khan)</h5>
           <table class="hoverTable table">
               <thead>
                   <tr>
