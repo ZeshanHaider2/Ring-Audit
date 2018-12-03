@@ -36,6 +36,8 @@
   
     <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
     <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/designer.css">
   
   
   <style>
@@ -182,14 +184,13 @@
 }
 
 /* Style the tab */
-.tab {
-    overflow: hidden;
+/* .tab {
     border: 1px solid #ccc;
     background-color: #f1f1f1;
-}
+} */
 
 /* Style the buttons that are used to open the tab content */
-.tab button {
+/* .tab button {
     background-color: inherit;
     float: left;
     border: none;
@@ -197,16 +198,18 @@
     cursor: pointer;
     padding: 14px 16px;
     transition: 0.3s;
-}
+} */
 
 /* Change background color of buttons on hover */
-.tab button:hover {
+/* .tab button:hover {
     background-color: #ddd;
-}
+} */
 
 /* Create an active/current tablink class */
 .tab button.active {
-    border-bottom: 1px solid #012942;
+    border-bottom: 1px solid #24a1ec !important;
+    color: #24a1ec !important;
+    background: none !important;
 }
 
 
@@ -214,7 +217,7 @@
 /* Style the tab content */
 .tabcontent {
     display: none;
-    padding: 6px 12px;
+    /* padding: 6px 12px; */
     border: 1px solid #ccc;
     border-top: none;
 }
@@ -331,7 +334,10 @@ span.ag-header-cell-text {
 
     .rag-yellow{
         background-color: #ED9B38;
-        color: #fff;
+    }
+
+    .yellow2{
+      background-color: #EFBA46;
     }
 
     @media screen and (max-width: 1318px) {
@@ -411,9 +417,9 @@ span.ag-header-cell-text {
     margin-left: 5px;
 }
 
-.active:after {
+/* .active:after {
     content: "\2212";
-}
+} */
 
 .panel {
     padding: 0 18px;
@@ -433,6 +439,31 @@ span.ag-header-cell-text {
     display: inline-block;
     width: 70px !important;
 }
+
+.navigation-header {
+    text-align: left !important;
+}
+
+.main-menu.menu-light .navigation .navigation-header{
+  
+  background: #37474f !important;
+}
+
+.table th, .table td {
+    color: rgba(28, 28, 28, 0.76) !important;
+}
+
+.factors-table-div{
+    overflow: scroll;
+}
+
+.assessment-cell{
+    width: 105px !important;
+}
+
+.preference-factors-div{
+  display: none;
+}
   </style>
 </head>
 <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar"
@@ -447,7 +478,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
           <li class="nav-item">
             <a class="navbar-brand" href="index.html">
               <img class="brand-logo" alt="ring admin logo" src="../../../app-assets/images/logo/stack-logo.png">
-              <h2 class="brand-text">ing</h2>
+              <h2 class="brand-text">Audit Ring</h2>
             </a>
           </li>
           <li class="nav-item d-md-none">
@@ -571,7 +602,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
     <div class="main-menu-content">
       <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
         <li class=" navigation-header">
-          <span>Audit Universe</span><i class=" ft-minus" data-toggle="tooltip" data-placement="right"
+          <span id="audit-uni">Audit Universe</span><i class=" ft-minus" data-toggle="tooltip" data-placement="right"
           data-original-title="General"></i>
         </li>
         <li class=" nav-item"><a href="#"><i class="ft-align-left"></i><span class="menu-title" data-i18n="">Summary</span></a>
@@ -594,7 +625,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
         </li>
         <li class=" nav-item"><a href="#"><i class="ft-bar-chart-2"></i><span class="menu-title" data-i18n="">Assessments</span></a>
           <ul class="menu-content">
-              <li><a class="menu-item" href="assessment-factors.html">Factors</a>
+              <li><a id="factors" class="menu-item" href="#">Factors</a>
               </li>
               <li><a class="menu-item" href="#">Assessments</a>
               </li>
@@ -610,21 +641,21 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
   <div class="app-content content">
     <div class="content-wrapper">
       <div class="myGrid-div">
-      <h4>Risk Control Matrix - Risk Register</h4>
+      <h1 class="app-top-heading">Risk Control Matrix - Risk Register</h1>
       <!-- Tab links -->
       <div class="tab">
           <div class="flex-container">
             <div class="item1">
-                <button class="tablinks" onclick="openCity(event, 'summary')">Summary</button>
+                <button class="tablinks active" onclick="openCity(event, 'summary')">Summary</button>
                 <button class="tablinks" onclick="openCity(event, 'risk-reg')">Register</button>
                 
             </div>
             
             <div class="item2">
-                <button class="tab-links"><a href="add-new-risk.html">Add New</a></button>
-                <button class="tab-links"><a href="#">Refresh</a></button>
-                <button class="tab-links"><a href="#">Export</a></button>
-                <button class="tab-links"><a href="#">Print</a></button>
+                <button class="tab-links"><a href="add-new-risk.html"><i class="ft-plus"></i>  Add New</a></button>
+                <button class="tab-links"><a href="#"><i class="ft-refresh-cw"></i> Refresh</a></button>
+                <button class="tab-links"><a href="#"><i class="ft-download"></i> Export</a></button>
+                <button class="tab-links"><a href="#"><i class="ft-printer"></i> Print</a></button>
             </div>
             
           </div>
@@ -636,11 +667,73 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
         </div>
         
         <div id="summary" class="tabcontent" style="display:block">
-            <div id="total-div">
-              <p class="total">Total: 120</p>
-              <p class="high">High: 15 (5%)</p>
-              <p class="medium">Medium: 20 (30%)</p>
-              <p class="low">Low: 30 (65%)</p>
+            <!-- <div id="total-div" class="row">
+              <div class="col-3"><p class="total">Total: 120</p></div>
+              <div class="col-3"><p class="high">High: 15 (5%)</p></div>
+              <div class="col-3"><p class="medium">Medium: 20 (30%)</p></div>
+              <div class="col-3"><p class="low">Low: 30 (65%)</p></div>
+            </div> -->
+            <div class="row">
+                <div class="col-xl-3 col-lg-6 col-12">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media align-items-stretch">
+                                <div class="p-2 text-center bg-primary bg-darken-2">
+                                    <i class="ft-list font-large-2 white"></i>
+                                </div>
+                                <div class="p-2 bg-gradient-x-primary white media-body">
+                                    <h5>Total</h5>
+                                    <h5 class="text-bold-400 mb-0"><i class=""></i> 120</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media align-items-stretch">
+                                <div class="p-2 text-center bg-danger bg-darken-2">
+                                    <i class="ft-arrow-up font-large-2 white"></i>
+                                </div>
+                                <div class="p-2 bg-gradient-x-danger white media-body">
+                                    <h5>High</h5>
+                                    <h5 class="text-bold-400 mb-0"><i class=""></i>15 (5%)</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media align-items-stretch">
+                                <div class="p-2 text-center bg-warning bg-darken-2">
+                                    <i class="ft-align-justify font-large-2 white"></i>
+                                </div>
+                                <div class="p-2 bg-gradient-x-warning white media-body">
+                                    <h5>Medium</h5>
+                                    <h5 class="text-bold-400 mb-0"><i class=""></i> 20 (30%)</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media align-items-stretch">
+                                <div class="p-2 text-center bg-success bg-darken-2">
+                                    <i class="ft-arrow-down font-large-2 white"></i>
+                                </div>
+                                <div class="p-2 bg-gradient-x-success white media-body">
+                                    <h5>Low</h5>
+                                    <h5 class="text-bold-400 mb-0"><i class=""></i> 30 (65%)</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <h5 id="inherent">Inherent Risk Rating</h5>
             <h6>Consequence</h6>
@@ -791,7 +884,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
         <!-- Tab links -->
         <div class="tab">
             
-                  <button class="tablinks" onclick="openCity(event, 'summary2')">Summary</button>
+                  <button class="tablinks active" onclick="openCity(event, 'summary2')">Summary</button>
                   <button class="tablinks" onclick="openCity(event, 'risk-reg2')">List</button>
               
           </div>
@@ -809,11 +902,11 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
 
 
     <div class="risk-table-div">
-      <h4>Risk Control Matrix - Risk Register</h4>
+      <h1 class="app-top-heading">Risk Control Matrix - Risk Register</h1>
      
       <div class="tab">
           
-                <button class="tablinks" onclick="openCity(event, 'summary3')">Summary</button>
+                <button class="tablinks active" onclick="openCity(event, 'summary3')">Summary</button>
                 <button class="tablinks" onclick="openCity(event, 'matrix3')">Matrix</button>
                 <button class="tablinks" onclick="openCity(event, 'impact-scale')">Impact Scale</button>
                 <button class="tablinks" onclick="openCity(event, 'likelihood-scale')">Likelihood Scale</button>
@@ -993,10 +1086,170 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
           </table>
           
         </div>
-          
-      
-        
               
+      </div>
+
+      <div class="preference-factors-div">
+          <h1 class="app-top-heading">Preference Assessment - Factors</h1>
+        
+        <div class="tab">
+         <div class="flex-container">
+          <div class="item1">
+              <button class="tablinks active" onclick="openCity(event, 'summary4')">Summary</button>
+              <button class="tablinks" onclick="openCity(event, 'list4')">List</button>
+          </div>
+
+          <div class="item2">
+              <button class="tab-links"><a href="add-new-factor.html">Add New</a></button>
+          </div>
+         </div>
+        </div>
+          
+          <div id="summary4" class="tabcontent" style="display: block;">
+            <p>No Data is Available.</p>
+          </div>
+
+          <div id="list4" class="tabcontent">
+              <div class="factors-table-div">
+                  
+                  <table class="hoverTable table">
+                    <thead>
+                        <tr>
+                          <th>Title</th>
+                          <th>Status</th>
+                          <th>Levels</th>
+                          <th>Used in</th>
+                          <th>Last Updated</th>
+                          <th>Update by</th>
+                        </tr>
+                    </thead>
+                  <tbody>
+                      <tr>
+                          <td><strong>Money Volume:</strong> Large amounts involved either flowing through a system or budgeted to an activity, process and/or department, increase audit interest…</td>
+                          <td>Active</td>
+                          <td>5</td>
+                          <td class="assessment-cell">1 Assessment</td>
+                          <td>25/11/2015</td>
+                          <td>M Ajmal</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Public Disclosure and reputation:</strong> The prospect of the authority and public for the Organization  and the effect of significant adverse disrepute, as a consequence …</td>
+                          <td>Active</td>
+                          <td>5</td>
+                          <td class="assessment-cell">4 Assessment</td>
+                          <td>16/05/2015</td>
+                          <td>Zeeshan Mujahid</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Strategic Plan:</strong> Areas related directly to the Organization Strategic Plan 2020 increase audit interest.</td>
+                          <td>Active</td>
+                          <td>5</td>
+                          <td class="assessment-cell">1 Assessment</td>
+                          <td>26/08/2015</td>
+                          <td>Sufian Khalid</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Executive Management Interest:</strong> Expressed or implied concern relating to a department, process or area by senior management increases audit interest.</td>
+                            <td>Active</td>
+                            <td>5</td>
+                            <td class="assessment-cell">3 Assessment</td>
+                            <td>18/05/2015</td>
+                            <td>Sheikh Zain Mazhar</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Internal Control:</strong> The design of an internal control system is important in judging the probability of errors in the system. Areas with weak internal control are of…</td>
+                            <td>Active</td>
+                            <td>5</td>
+                            <td class="assessment-cell">No Used</td>
+                            <td>23/11/2015</td>
+                            <td>Dr Wasim Sajjad</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Result of prior audit:</strong> Significant findings in a prior audit increase audit interest.</td>
+                          <td>Active</td>
+                          <td>5</td>
+                          <td class="assessment-cell">3 Assessment</td>
+                          <td>26/04/2015</td>
+                          <td>M Fayyaz-ud-Din Chughtai</td>
+                        </tr>
+                      <tr>
+                        <td><strong>Complexity of activity:</strong> If operating complexity of an area is relatively high, information and control systems tend to become more complex.  This complexity…</td>
+                        <td>Inactive</td>
+                        <td>5</td>
+                        <td class="assessment-cell">1 Assessment</td>
+                        <td>26/04/2015</td>
+                        <td>Muhammad Safdar</td>
+                      </tr>
+                     <tr>
+                      <td><strong>Time since last audit:</strong> As the time since the last audit lengthens, the value of a new audit is likely to increase.</td>
+                      <td>Active</td>
+                      <td>5</td>
+                      <td class="assessment-cell">2 Assessment</td>
+                      <td>11/06/2015</td>
+                      <td>Muhammad Saleem</td>
+                    </tr>
+                     <tr>
+                        <td><strong>Deviation from Budget plan:</strong> Significant unfavorable deviation from established budget and plans increase audit interest.</td>
+                        <td>Active</td>
+                        <td>5</td>
+                        <td class="assessment-cell">1 Assessment</td>
+                        <td>15/06/2015</td>
+                        <td>Aftab Ahmed</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Management Control Environment: </strong>Assessment of control environment should be based on factors such as the adequacy of the existing control structure …</td>
+                        <td>Active</td>
+                        <td>5</td>
+                        <td class="assessment-cell">Not Used</td>
+                        <td>26/07/2015</td>
+                        <td>Zeshan Arshad</td>
+                      </tr>
+                     <tr>
+                        <td><strong>Business Exposure:</strong> Larger potential losses are normally associated with larger sized activities, as indicated by revenues and expenditures. Other things being …</td>
+                        <td>Active</td>
+                        <td>5</td>
+                        <td class="assessment-cell">1 Assessment</td>
+                        <td>16/08/2015</td>
+                        <td>Ehsan Ali</td>
+                      </tr>
+                     <tr>
+                      <td><strong>Public and Political Sensitivity:</strong> A public relations exposure exists whenever an event occurs which would erode public confidence in the Organization… </td>
+                      <td>Active</td>
+                      <td>5</td>
+                      <td class="assessment-cell">2 Assessment</td>
+                      <td>23/08/2015</td>
+                      <td>Fasih Niaz</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Compliance Requirements:</strong> Compliance requirements address all internal and external policy, procedure, regulatory, and statutory matters affecting the …</td>
+                      <td>Active</td>
+                      <td>5</td>
+                      <td class="assessment-cell">1 Assessment</td>
+                      <td>14/07/2015</td>
+                      <td>M Ajmal</td>
+                    </tr>
+                   <tr>
+                    <td><strong>Information & Reporting:</strong> Information is needed at all levels of an organization to run the business, and move toward achievement of the entity’s objectives in all …</td>
+                    <td>Active</td>
+                    <td>5</td>
+                    <td class="assessment-cell">3 Assessment</td>
+                    <td>02/08/2015</td>
+                    <td>Zeeshan Mujahid</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Organizational Change/Growth:</strong> : A function's existing and future operations can influence risk. Changes in management personnel or structure influence risk…</td>
+                    <td>Active</td>
+                    <td>5</td>
+                    <td class="assessment-cell">1 Assessment</td>
+                    <td>25/11/2015</td>
+                    <td>Sufian Khalid</td>
+                  </tr>
+                 
+                  </tbody>
+                  
+                </table>
+           </div>
+          </div>
       </div>
   </div>
   <!-- ////////////////////////////////////////////////////////////////////////////-->
@@ -1014,18 +1267,28 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
         $(".myGrid-div").show();
         $(".myGrid-div2").hide();
         $(".risk-table-div").hide();
+        $(".preference-factors-div").hide();
         $("footer").show();
       });
       $("#aud").click(function(){
         $(".myGrid-div2").show();
         $(".myGrid-div").hide();
         $(".risk-table-div").hide();
+        $(".preference-factors-div").hide();
         $("footer").show();
       });
       $("#risk-matrix").click(function(){
         $(".myGrid-div2").hide();
         $(".myGrid-div").hide();
         $(".risk-table-div").show();
+        $(".preference-factors-div").hide();
+        $("footer").show();
+      });
+      $('#factors').click(function(){
+        $(".preference-factors-div").show();
+        $(".myGrid-div").hide();
+        $(".myGrid-div2").hide();
+        $(".risk-table-div").hide();
         $("footer").show();
       });
     });
@@ -1071,7 +1334,13 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                 {headerName: "Impact", field: "ir-impact", width: 100},
                 {headerName: "Level", field: "ir-level", width: 100,
                 cellClassRules: {
-                      'rag-yellow': "x == 'High'"
+                      'rag-yellow': "x == 'High'",
+                      'greenCell2': "x == 'Low'",
+                      'greenCell': "x == 'Very Low'",
+                      'yellow2': "x == 'Medium'",
+                      'redCell': "x == 'Very High'",
+                      'redCell2': "x == 'Extreme'"
+
                     }
                 },
                ], field: "ir", width: 200},
@@ -1081,7 +1350,12 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                 {headerName: "Impact", field: "rr-impact", width: 100},
                 {headerName: "Level", field: "rr-level", width: 100,
                 cellClassRules: {
-                      'rag-yellow': "x == 'High'"
+                  'rag-yellow': "x == 'High'",
+                      'greenCell2': "x == 'Low'",
+                      'greenCell': "x == 'Very Low'",
+                      'yellow2': "x == 'Medium'",
+                      'redCell': "x == 'Very High'",
+                      'redCell2': "x == 'Extreme'"
                     }
                 },
                ], field: "rr", width: 200},
@@ -1111,7 +1385,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // do http request to get our sample data - not using any framework to keep the example self contained.
     // you will probably use a framework like JQuery, Angular or something else to do your HTTP calls.
     var httpRequest = new XMLHttpRequest();
-    httpRequest.open('GET', 'https://api.myjson.com/bins/16st8u');
+    httpRequest.open('GET', 'https://api.myjson.com/bins/h2lne');
     httpRequest.send();
     httpRequest.onreadystatechange = function() {
         if (httpRequest.readyState === 4 && httpRequest.status === 200) {
