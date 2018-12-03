@@ -64,6 +64,14 @@
         padding-right: 20px !important;
       }
 
+      input[type="radio"] {
+          margin-left: 25px;
+      }
+
+      span#role-text {
+          font-size: 15px;
+      }
+
   </style>
   <!-- END Custom CSS-->
 </head>
@@ -95,13 +103,20 @@ data-open="click" data-menu="vertical-menu" data-col="1-column">
                     <span id="lgn-text">Login to your account</span>
                   </p>
                   <div class="card-body">
-                    <form class="form-horizontal" action="terms.html" novalidate>
+                    <form onsubmit="mainPage()" class="form-horizontal" novalidate>
+                      <fieldset class="form-group position-relative has-icon-left">
+                          <span id="role-text">Role:</span>
+                          <input name="role" type="radio" id="auditor">
+                          <label for="auditor">Auditor</label>
+                          <input name="role" type="radio" id="auditee">
+                          <label for="auditee">Auditee</label>
+                      </fieldset>   
                       <fieldset class="form-group position-relative has-icon-left">
                         <label for="user-name">Username</label>
                         <input type="text" class="form-control" id="user-name" required>
                       </fieldset>
                       <fieldset class="form-group position-relative has-icon-left">
-                          <label for="password-field">Password</label>
+                        <label for="password-field">Password</label>
                         <input id="password-field" type="password" class="form-control" name="password" required>
                         <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                       </fieldset>
@@ -572,6 +587,16 @@ var config = {
 var treeview = new Treeview(config);
 
 var link = (curie,text)=>`<span class="internalLink" onclick="treeview.selectNode('${curie}');return false;">${text}</span>`
+
+function mainPage(){
+  if (document.getElementById('user-name').value=='name'){
+    locUrl = "https://www.w3schools.com/jsref/event_onsubmit.asp";
+  }
+  else if (document.getElementById('user-name').value=='2name'){
+    locUrl = "terms.html";
+  }
+  window.location.replace(locUrl);
+}
   </script>
   <!-- ////////////////////////////////////////////////////////////////////////////-->
   <!-- BEGIN VENDOR JS-->
