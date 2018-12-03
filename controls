@@ -1,0 +1,772 @@
+<!-- - var menuBorder = true-->
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <meta name="description" content="Ring Audit">
+  <meta name="keywords" content="admin template, stack admin template, dashboard template, flat admin template, responsive admin template, web app">
+  <meta name="author" content="PIXINVENT">
+  <title>Ring Audit</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon-32.png">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i"
+  rel="stylesheet">
+  <!-- BEGIN VENDOR CSS-->
+  <link rel="stylesheet" type="text/css" href="../../../app-assets/css/vendors.css">
+  <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/forms/icheck/icheck.css">
+  <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/forms/icheck/custom.css">
+  <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/charts/morris.css">
+  <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/unslider.css">
+  <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/weather-icons/climacons.min.css">
+  <!-- END VENDOR CSS-->
+  <!-- BEGIN STACK CSS-->
+  <link rel="stylesheet" type="text/css" href="../../../app-assets/css/app.css">
+  <!-- END STACK CSS-->
+  <!-- BEGIN Page Level CSS-->
+  <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
+  <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/colors/palette-climacon.css">
+  <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/colors/palette-gradient.css">
+  <link rel="stylesheet" type="text/css" href="../../../app-assets/fonts/simple-line-icons/style.min.css">
+  <link rel="stylesheet" type="text/css" href="../../../app-assets/fonts/meteocons/style.min.css">
+  <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/users.css">
+  <!-- END Page Level CSS-->
+  <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+  <script src="https://unpkg.com/ag-grid-enterprise/dist/ag-grid-enterprise.min.noStyle.js"></script>
+  
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/designer.css">
+  
+  
+  <style>
+    
+      html body {
+        background-color: #fff;
+      }
+
+      .content-wrapper {
+        padding-top: 15px !important;
+      }
+
+      h2.brand-text {
+        color: #24a1ec;
+      }
+
+      span.avatar.avatar-online {
+        display: none;
+      }
+
+      
+
+      .myGrid-div h6{
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 10px;
+        color: #808080fa;
+      }
+
+      .subtext{
+        font-size: 9px !important;
+        text-transform: capitalize !important;
+      }
+
+      .myGrid-div h5{
+        margin-top: 15px;
+        font-weight: bold;
+      }
+
+      #summary, #matrix3, #impact-scale{
+        overflow: scroll;
+      }
+
+      div.blueTable {
+        border: 2px solid #E7E7E7;
+        background-color: #E7E7E7;
+        width: 100%;
+        text-align: left;
+        border-collapse: collapse;
+      }
+
+
+.divTableHead, .divTableCell {
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.divTableHead2{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+
+.divTable.blueTable .divTableCell, .divTable.blueTable .divTableHead,.divTableHead2 {
+  border: 8px solid #FFFFFF;
+  padding: 9px 5px;
+}
+.divTable.blueTable .divTableBody .divTableCell {
+  font-size: 11px;
+  font-weight: normal;
+  color: #fff;
+  background: #EFBA46;
+}
+
+.grayCell{
+  box-shadow: 10px 10px 5px #80808017 !important;
+  background: #E7E7E7 !important;
+  color: rgba(28, 28, 28, 0.76) !important;
+ }
+
+ .redCell{
+  background:#AD4739 !important;
+ }
+
+ .greenCell{
+  background: #8AB353 !important;
+ }
+
+ .greenCell2{
+  background: #C3CB51 !important;
+ }
+
+.yellowCell{
+  background: #ED9B38 !important;
+ }
+
+ .redCell2{
+  background: #D75847 !important;
+ }
+
+
+.divTable.blueTable .divTableHeading .divTableHead {
+  font-size: 11px;
+  font-weight: normal;
+  
+}
+.blueTable .tableFootStyle {
+  font-size: 14px;
+}
+.blueTable .tableFootStyle .links {
+	 text-align: right;
+}
+.blueTable .tableFootStyle .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+.blueTable.outerTableFooter {
+  border-top: none;
+}
+.blueTable.outerTableFooter .tableFootStyle {
+  padding: 3px 5px; 
+}
+/* DivTable.com */
+.divTable{ display: table; }
+.divTableRow { display: table-row; }
+.divTableHeading { display: table-header-group;}
+.divTableCell, .divTableHead, .divTableHead2 { display: table-cell;}
+.divTableHeading { display: table-header-group;}
+.divTableFoot { display: table-footer-group;}
+.divTableBody { display: table-row-group;}
+
+.blankCell{
+  background: #fff !important;
+}
+      
+#residual{
+  margin-top: 55px;
+}
+
+/* Style the tab */
+/* .tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+} */
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    border-bottom: 1px solid #24a1ec;
+    color: #24a1ec;
+    background: none;
+}
+
+
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.tabcontent {
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-container2 {
+  display: flex;
+  margin-left: 15px;
+}
+
+.tab-links.active{
+  border-bottom: none;
+}
+
+.tab-links:hover{
+  background-color: #f1f1f1 !important;
+}
+
+#total-div{
+  display: flex;
+}
+
+p.total {
+    font-size: 25px;
+    margin-right: 25px;
+}
+
+div#total-div {
+    margin-top: 45px;
+}
+
+p.high {
+    background: #f71717;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    color: #fff;
+    padding: 5px;
+}
+
+p.medium {
+    background: #e6b21a;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    color: #000;
+    padding: 5px;
+}
+
+p.low {
+    background: #1bbd12b3;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    color: #000;
+    padding: 5px;
+}
+
+.arrow {
+    color: #8080808a;
+    font-weight: bold;
+    text-align: right;
+}
+
+
+
+.arrow2 {
+    color: #000000;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.arrow2 p {
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 7px;
+    font-weight: bold;
+}
+
+.triangle-up {
+  margin: auto;
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid #4242428a;
+}
+
+.company-name{
+  margin:auto auto;
+}
+
+span.ag-header-group-text {
+    margin: auto;
+}
+
+span.ag-header-cell-text {
+    margin: auto;
+}
+
+    .rag-yellow{
+        background-color: #ED9B38;
+        color: #fff;
+    }
+
+    @media screen and (max-width: 1318px) {
+    .arrow {
+        display: none;
+    }
+  }
+
+   @media screen and (max-width: 1318px){
+     .arrow2 p, .triangle-up{
+       display: none;
+     }
+   }
+   
+    #matrix3 h5 {
+        margin-top: 10px;
+    }
+
+     #matrix3 h6 {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 10px;
+      color: #808080fa;
+    }
+
+            .hoverTable{
+              width:100%; 
+              border-collapse:collapse; 
+            }
+            .hoverTable td{ 
+              padding:7px;
+            }
+            .hoverTable th {
+                padding-left: 5px !important;
+            }
+            
+            /* Define the hover highlight color for the table row */
+              .hoverTable tr:hover {
+                    background-color: #b8d1f3;
+              }
+
+              #likelihood-scale a {
+                  margin-left: 10px;
+              }
+
+              #likelihood-scale a i{
+                  color: rgb(0, 153, 255);
+              }
+
+              #likelihood-scale{
+                overflow: scroll;
+              }
+
+
+              .accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    margin-bottom: 10px !important;
+    margin-top: 20px;
+}
+
+.sever {
+    margin-top: 10px;
+}
+
+.i-f {
+    display: inline-block;
+    width: 70px !important;
+}
+
+.flex-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+.navigation-header {
+    text-align: left !important;
+}
+
+.main-menu.menu-light .navigation .navigation-header{
+  background: #37474f !important;
+}
+  </style>
+</head>
+<body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar"
+data-open="click" data-menu="vertical-menu" data-col="2-columns">
+  <!-- fixed-top-->
+  <nav class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-light navbar-border">
+    <div class="navbar-wrapper">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav flex-row">
+          <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
+          
+          <li class="nav-item">
+            <a class="navbar-brand" href="index.html">
+              <img class="brand-logo" alt="ring admin logo" src="../../../app-assets/images/logo/stack-logo.png">
+              <h2 class="brand-text">Audit Ring</h2>
+            </a>
+          </li>
+          <li class="nav-item d-md-none">
+            <a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i class="fa fa-ellipsis-v"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-container content">
+        <div class="collapse navbar-collapse" id="navbar-mobile">
+          <ul class="nav navbar-nav mr-auto float-left">
+            <li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu"></i></a></li>
+            <h4 class="company-name">King Faisal Hospital & Research Center</h4>
+            <li class="nav-item d-none d-md-block"><a class="nav-link nav-link-expand" href="#"><i class="ficon ft-maximize"></i></a></li>
+            <li class="nav-item nav-search"><a class="nav-link nav-link-search" href="#"><i class="ficon ft-search"></i></a>
+              <div class="search-input">
+                <input class="input" type="text" placeholder="Explore...">
+              </div>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav float-right">
+            
+              
+            
+            <li class="dropdown dropdown-notification nav-item">
+              <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i>
+                <span class="badge badge-pill badge-default badge-danger badge-default badge-up">5</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                <li class="dropdown-menu-header">
+                  <h6 class="dropdown-header m-0">
+                    <span class="grey darken-2">Notifications</span>
+                    <span class="notification-tag badge badge-default badge-danger float-right m-0">5 New</span>
+                  </h6>
+                </li>
+                <li class="scrollable-container media-list">
+                  <a href="javascript:void(0)">
+                    <div class="media">
+                      <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
+                      <div class="media-body">
+                        <h6 class="media-heading">You have new order!</h6>
+                        <p class="notification-text font-small-3 text-muted">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                        <small>
+                          <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">30 minutes ago</time>
+                        </small>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="javascript:void(0)">
+                    <div class="media">
+                      <div class="media-left align-self-center"><i class="ft-download-cloud icon-bg-circle bg-red bg-darken-1"></i></div>
+                      <div class="media-body">
+                        <h6 class="media-heading red darken-1">99% Server load</h6>
+                        <p class="notification-text font-small-3 text-muted">Aliquam tincidunt mauris eu risus.</p>
+                        <small>
+                          <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Five hour ago</time>
+                        </small>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="javascript:void(0)">
+                    <div class="media">
+                      <div class="media-left align-self-center"><i class="ft-alert-triangle icon-bg-circle bg-yellow bg-darken-3"></i></div>
+                      <div class="media-body">
+                        <h6 class="media-heading yellow darken-3">Warning notifixation</h6>
+                        <p class="notification-text font-small-3 text-muted">Vestibulum auctor dapibus neque.</p>
+                        <small>
+                          <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Today</time>
+                        </small>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="javascript:void(0)">
+                    <div class="media">
+                      <div class="media-left align-self-center"><i class="ft-check-circle icon-bg-circle bg-cyan"></i></div>
+                      <div class="media-body">
+                        <h6 class="media-heading">Complete the task</h6>
+                        <small>
+                          <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Last week</time>
+                        </small>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="javascript:void(0)">
+                    <div class="media">
+                      <div class="media-left align-self-center"><i class="ft-file icon-bg-circle bg-teal"></i></div>
+                      <div class="media-body">
+                        <h6 class="media-heading">Generate monthly report</h6>
+                        <small>
+                          <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Last month</time>
+                        </small>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="javascript:void(0)">Read all notifications</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown dropdown-user nav-item">
+              <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
+                <span class="avatar avatar-online">
+                  <img src="../../../app-assets/images/portrait/small/avatar-s-1.png" alt="avatar"><i></i></span>
+                <span class="user-name">Mansoor(Auditor)</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="user-profile.html"><i class="ft-user"></i> Edit Profile</a>
+                <a class="dropdown-item" href="email-application.html"><i class="ft-mail"></i> My Inbox</a>
+                <a class="dropdown-item" href="email-application.html"><i class="ft-user"></i> Switch Role</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="lock-screen.html"><i class="ft-lock"></i> Lock Screen</a>
+                <a class="dropdown-item" href="change-password.html"><i class="ft-lock"></i> Change Password</a>
+                <a class="dropdown-item" href="login-with-bg-image.html"><i class="ft-power"></i> Logout</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+  <div class="main-menu menu-fixed menu-light menu-accordion" data-scroll-to-active="true">
+    <div class="main-menu-content">
+      <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+        <li class=" navigation-header">
+          <span>Audit Universe</span><i class=" ft-minus" data-toggle="tooltip" data-placement="right"
+          data-original-title="General"></i>
+        </li>
+        <li class=" nav-item"><a href="#"><i class="ft-align-left"></i><span class="menu-title" data-i18n="">Summary</span></a>
+        </li>
+        <li class=" nav-item"><a href="#"><i class="ft-briefcase"></i><span class="menu-title" data-i18n="">Organization</span></a>
+        </li>
+        <li class=" nav-item"><a href="#"><i class="ft-grid"></i><span class="menu-title" data-i18n="">Risk Control Matrix</span></a>
+          <ul class="menu-content">
+              <li><a id="risk-matrix" class="menu-item" href="#">Risk Matrix</a>
+              </li>
+            <li><a class="menu-item" href="#">Objectives</a>
+            </li>
+            <li><a id="risk-table" class="menu-item" href="#">Risks</a>
+            </li>
+            <li><a class="menu-item" href="#">Controls</a>
+            </li>
+          </ul>
+        </li>
+        <li class=" nav-item"><a id="aud" href="#"><i class="ft-file"></i><span class="menu-title" data-i18n="">Auditable Entities</span></a>
+        </li>
+        <li class=" nav-item"><a href="#"><i class="ft-bar-chart-2"></i><span class="menu-title" data-i18n="">Assessments</span></a>
+          <ul class="menu-content">
+              <li><a class="menu-item" href="assessment-factors.html">Factors</a>
+              </li>
+              <li><a class="menu-item" href="#">Assessments</a>
+              </li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+  <div class="app-content content">
+    <div class="content-wrapper">
+      <div class="myGrid-div">
+      <h1 class="app-top-heading">Risk Control Matrix - Controls</h1>
+      <div class="tab">
+          <div class="flex-container">
+              <div class="item1">
+                  
+              </div>
+              
+              <div class="item2">
+                  <button class="tab-links"><a href="new-control.html">Add New</a></button>
+                  <button class="tab-links"><a href="#">Refresh</a></button>
+                  <button class="tab-links"><a href="#">Export</a></button>
+                  <button class="tab-links"><a href="#">Print</a></button>
+              </div>
+              
+          </div>
+      </div>
+            <div id="myGrid" style="height: 600px; width:100%;" class="ag-theme-balham"></div>
+     
+    </div>
+
+  </div>
+</div>
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+  <footer class="footer footer-static footer-light navbar-border">
+    <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2">
+      <span class="float-md-left d-block d-md-inline-block">Copyright &copy; 2018 <a class="text-bold-800 grey darken-2" href="#"
+        target="_blank">RING </a>, All rights reserved. </span>
+      
+    </p>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    
+  </script>
+  <!-- BEGIN VENDOR JS-->
+  <script src="../../../app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
+  <!-- BEGIN VENDOR JS-->
+  <!-- BEGIN PAGE VENDOR JS-->
+  <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBDkKetQwosod2SZ7ZGCpxuJdxY3kxo5Po"
+  type="text/javascript"></script>
+  <script src="../../../app-assets/vendors/js/charts/gmaps.min.js" type="text/javascript"></script>
+  <script src="../../../app-assets/vendors/js/forms/icheck/icheck.min.js" type="text/javascript"></script>
+  <script src="../../../app-assets/vendors/js/extensions/jquery.knob.min.js" type="text/javascript"></script>
+  <script src="../../../app-assets/vendors/js/charts/raphael-min.js" type="text/javascript"></script>
+  <script src="../../../app-assets/vendors/js/charts/morris.min.js" type="text/javascript"></script>
+  <script src="../../../app-assets/vendors/js/charts/jquery.sparkline.min.js" type="text/javascript"></script>
+  <script src="../../../app-assets/vendors/js/extensions/unslider-min.js" type="text/javascript"></script>
+  <script src="../../../app-assets/vendors/js/charts/echarts/echarts.js" type="text/javascript"></script>
+  <!-- END PAGE VENDOR JS-->
+  <!-- BEGIN STACK JS-->
+  <script src="../../../app-assets/js/core/app-menu.js" type="text/javascript"></script>
+  <script src="../../../app-assets/js/core/app.js" type="text/javascript"></script>
+  <script src="../../../app-assets/js/scripts/customizer.js" type="text/javascript"></script>
+  <!-- END STACK JS-->
+  <script src="../../../app-assets/js/scripts/pages/dashboard-fitness.js" type="text/javascript"></script>
+  
+  
+  
+  <script type="text/javascript" charset="utf-8">
+agGrid.LicenseManager.setLicenseKey("Evaluation_License_Not_For_Production_Valid_Until5_January_2019__MTU0NjY0NjQwMDAwMA==14c2b7c7e69b514c1836f70b9f58c8ff");
+// specify the columns
+var columnDefs = [
+    {headerName: "Category", field: "category", width: 150, rowGroup:true, hide: "true", suppressToolPanel: true},
+    {headerName: "Title", field: "title", width: 180},
+    {headerName: "Type", field: "type", width: 110},
+    {headerName: "Nature", field: "nature", width: 110},
+    {headerName: "Automation", field: "automation", width: 110},
+    {headerName: "Significance", field: "significance", width: 120},
+    {headerName: "Validity", field: "validity", width: 120},
+    {headerName: "Status", field: "status", width: 120},
+    {headerName: "Associated Risks", field: "associated-risks", width: 120},
+    {headerName: "Associated Findings", field: "associated-findings", width: 120},
+    {headerName: "Last Tested", field: "last-tested", width: 120}
+];
+
+var gridOptions = {
+    columnDefs: columnDefs,
+    animateRows: true,
+    enableRangeSelection: true,
+    rowData: null,
+    enableSorting:true,
+    groupDefaultExpanded: -1,
+    enableFilter:true
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+    var gridDiv = document.querySelector('#myGrid');
+    new agGrid.Grid(gridDiv, gridOptions);
+
+    // do http request to get our sample data - not using any framework to keep the example self contained.
+    // you will probably use a framework like JQuery, Angular or something else to do your HTTP calls.
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.open('GET', 'https://api.myjson.com/bins/15pwju');
+    httpRequest.send();
+    httpRequest.onreadystatechange = function() {
+        if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+            var httpResult = JSON.parse(httpRequest.responseText);
+            gridOptions.api.setRowData(httpResult);
+        }
+    };
+});
+
+
+
+
+
+function onFilterTextBoxChanged() {
+    gridOptions.api.setQuickFilter(document.getElementById('filter-text-box').value);
+}
+
+// wait for the document to be loaded, otherwise
+// ag-Grid will not find the div in the document.
+document.addEventListener("DOMContentLoaded", function() {
+
+    // lookup the container we want the Grid to use
+    var eGridDiv = document.querySelector('#myGrid');
+
+    // create the grid passing in the div to use together with the columns & data we want to use
+    new agGrid.Grid(eGridDiv, gridOptions1);
+});
+
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+  </script>
+</body>
+</html>
