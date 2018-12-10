@@ -38,7 +38,9 @@
     <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
 
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/designer.css">
-  
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    
   
   <style>
     
@@ -58,9 +60,9 @@
         display: none;
       }
 
-      .myGrid-div, footer, .myGrid-div2, .risk-table-div{
+      /* .myGrid-div, footer, .myGrid-div2, .risk-table-div{
         display: none;
-      }
+      } */
 
       .myGrid-div h6{
         text-align: center;
@@ -79,7 +81,7 @@
         font-weight: bold;
       }
 
-      #summary, #matrix3, #impact-scale{
+      #summary, #matrix3, #impact-scale, .assessments-table-div{
         overflow: scroll;
       }
 
@@ -184,10 +186,9 @@
 }
 
 /* Style the tab */
-/* .tab {
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-} */
+.tab {
+    background-color: #fff;
+} 
 
 /* Style the buttons that are used to open the tab content */
 /* .tab button {
@@ -207,7 +208,7 @@
 
 /* Create an active/current tablink class */
 .tab button.active {
-    border-bottom: 1px solid #24a1ec !important;
+    border-bottom: 3px solid #24a1ec !important;
     color: #24a1ec !important;
     background: none !important;
 }
@@ -461,9 +462,50 @@ span.ag-header-cell-text {
     width: 105px !important;
 }
 
-.preference-factors-div{
+/* .preference-factors-div{
   display: none;
-}
+} */
+
+  @media screen and (max-width: 768px) {
+    .flex-container{
+        display: block !important;
+      }
+
+      .tab button {
+        float: none !important;
+      }
+
+  }
+
+  /* .assessments-div{
+    display: none;
+  } */
+
+  .my-container{
+    min-height:100%;
+    position:relative;
+    height: 100%;
+  }
+
+  footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+  }
+  
+  ul.mega-dropdown-menu.dropdown-menu.row {
+    width: 250px;
+    left: 850px;
+  }
+
+  ul.mega-dropdown-menu.dropdown-menu.row li{
+    text-align: center;
+  }
+
+  a.dropdown-toggle.nav-link {
+    padding-bottom: 0px !important;
+    padding-top: 17px !important;
+  }
   </style>
 </head>
 <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar"
@@ -500,7 +542,38 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
           </ul>
           <ul class="nav navbar-nav float-right">
             
-              
+              <li class="dropdown nav-item mega-dropdown"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">
+                  grid_on
+                  </i></a>
+                <ul class="mega-dropdown-menu dropdown-menu row">
+                  <li class="col-md-4">
+                    <a href="index.html">
+                      <img src="images/universe.png" alt="universe" height="40px" width="40px">
+                    </a>
+                  </li>
+                  <li class="col-md-4">
+                      <img src="images/planning.png" alt="planning" height="40px" width="40px">
+                  </li>
+                  <li class="col-md-4">
+                      <img src="images/working.png" alt="planning" height="40px" width="40px">
+                  </li>
+                  <li class="col-md-4">
+                      <img src="images/reports.png" alt="planning" height="40px" width="40px">
+                  </li>
+                    <li class="col-md-4">
+                        <img src="images/document.png" alt="planning" height="40px" width="40px">
+                    </li>
+                    <li class="col-md-4">
+                        <img src="images/tasks.png" alt="planning" height="40px" width="40px">
+                    </li>
+                    <li class="col-md-4">
+                        <img src="images/access.png" alt="planning" height="40px" width="40px">
+                    </li>
+                    <li class="col-md-4">
+                        <img src="images/system.png" alt="planning" height="40px" width="40px">
+                    </li>
+                </ul>
+              </li>
             
             <li class="dropdown dropdown-notification nav-item">
               <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i>
@@ -577,15 +650,17 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
               </ul>
             </li>
 
+
             <li class="dropdown dropdown-user nav-item">
               <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                 <span class="avatar avatar-online">
                   <img src="../../../app-assets/images/portrait/small/avatar-s-1.png" alt="avatar"><i></i></span>
-                <span class="user-name">Mansoor(Auditor)</span>
+                <span class="user-name">Mansoor (Auditor)</span>
               </a>
-              <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="user-profile.html"><i class="ft-user"></i> Edit Profile</a>
+              <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="user-profile.html"><i class="ft-user"></i> Edit Profile</a>
                 <a class="dropdown-item" href="email-application.html"><i class="ft-mail"></i> My Inbox</a>
-                <a class="dropdown-item" href="email-application.html"><i class="ft-user"></i> Switch Role</a>
+                <a class="dropdown-item" href="auditee.html"><i class="ft-user"></i> Switch Role As Auditee</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="lock-screen.html"><i class="ft-lock"></i> Lock Screen</a>
                 <a class="dropdown-item" href="change-password.html"><i class="ft-lock"></i> Change Password</a>
@@ -607,27 +682,27 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
         </li>
         <li class=" nav-item"><a href="#"><i class="ft-align-left"></i><span class="menu-title" data-i18n="">Summary</span></a>
         </li>
-        <li class=" nav-item"><a href="#"><i class="ft-briefcase"></i><span class="menu-title" data-i18n="">Organization</span></a>
+        <li class=" nav-item"><a href="organization-structure.html"><i class="ft-briefcase"></i><span class="menu-title" data-i18n="">Organization Structure</span></a>
         </li>
         <li class=" nav-item"><a href="#"><i class="ft-grid"></i><span class="menu-title" data-i18n="">Risk Control Matrix</span></a>
           <ul class="menu-content">
-              <li><a id="risk-matrix" class="menu-item" href="#">Risk Matrix</a>
-              </li>
+            <li><a id="risk-matrix" class="menu-item" href="risk-matrix.html">Risk Matrix</a>
+            </li>
             <li><a class="menu-item" href="#">Objectives</a>
             </li>
-            <li><a id="risk-table" class="menu-item" href="#">Risks</a>
+            <li><a id="risk-table" class="menu-item" href="risk-register.html">Risks</a>
             </li>
             <li><a class="menu-item" href="controls.html">Controls</a>
             </li>
           </ul>
         </li>
-        <li class=" nav-item"><a id="aud" href="#"><i class="ft-file"></i><span class="menu-title" data-i18n="">Auditable Entities</span></a>
+        <li class=" nav-item"><a id="aud" href="audit-entities.html"><i class="ft-file"></i><span class="menu-title" data-i18n="">Auditable Entities</span></a>
         </li>
         <li class=" nav-item"><a href="#"><i class="ft-bar-chart-2"></i><span class="menu-title" data-i18n="">Assessments</span></a>
           <ul class="menu-content">
-              <li><a id="factors" class="menu-item" href="#">Factors</a>
+              <li><a id="factors" class="menu-item" href="preference-factors.html">Factors</a>
               </li>
-              <li><a class="menu-item" href="#">Assessments</a>
+              <li><a id="assessments-open" class="menu-item" href="preference-assessments.html">Assessments</a>
               </li>
           </ul>
         </li>
@@ -640,617 +715,10 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
 
   <div class="app-content content">
     <div class="content-wrapper">
-      <div class="myGrid-div">
-      <h1 class="app-top-heading">Risk Control Matrix - Risk Register</h1>
-      <!-- Tab links -->
-      <div class="tab">
-          <div class="flex-container">
-            <div class="item1">
-                <button class="tablinks active" onclick="openCity(event, 'summary')">Summary</button>
-                <button class="tablinks" onclick="openCity(event, 'risk-reg')">Register</button>
-                
-            </div>
-            
-            <div class="item2">
-                <button class="tab-links"><a href="add-new-risk.html"><i class="ft-plus"></i>  Add New</a></button>
-                <button class="tab-links"><a href="#"><i class="ft-refresh-cw"></i> Refresh</a></button>
-                <button class="tab-links"><a href="#"><i class="ft-download"></i> Export</a></button>
-                <button class="tab-links"><a href="#"><i class="ft-printer"></i> Print</a></button>
-            </div>
-            
-          </div>
-        </div>
-        
-        <!-- Tab content -->
-        <div id="risk-reg" class="tabcontent">
-            <div id="myGrid" style="height: 600px; width:100%;" class="ag-theme-balham"></div>
-        </div>
-        
-        <div id="summary" class="tabcontent" style="display:block">
-            <!-- <div id="total-div" class="row">
-              <div class="col-3"><p class="total">Total: 120</p></div>
-              <div class="col-3"><p class="high">High: 15 (5%)</p></div>
-              <div class="col-3"><p class="medium">Medium: 20 (30%)</p></div>
-              <div class="col-3"><p class="low">Low: 30 (65%)</p></div>
-            </div> -->
-            <div class="row">
-                <div class="col-xl-3 col-lg-6 col-12">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="media align-items-stretch">
-                                <div class="p-2 text-center bg-primary bg-darken-2">
-                                    <i class="ft-list font-large-2 white"></i>
-                                </div>
-                                <div class="p-2 bg-gradient-x-primary white media-body">
-                                    <h5>Total</h5>
-                                    <h5 class="text-bold-400 mb-0"><i class=""></i> 120</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-12">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="media align-items-stretch">
-                                <div class="p-2 text-center bg-danger bg-darken-2">
-                                    <i class="ft-arrow-up font-large-2 white"></i>
-                                </div>
-                                <div class="p-2 bg-gradient-x-danger white media-body">
-                                    <h5>High</h5>
-                                    <h5 class="text-bold-400 mb-0"><i class=""></i>15 (5%)</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-12">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="media align-items-stretch">
-                                <div class="p-2 text-center bg-warning bg-darken-2">
-                                    <i class="ft-align-justify font-large-2 white"></i>
-                                </div>
-                                <div class="p-2 bg-gradient-x-warning white media-body">
-                                    <h5>Medium</h5>
-                                    <h5 class="text-bold-400 mb-0"><i class=""></i> 20 (30%)</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-12">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="media align-items-stretch">
-                                <div class="p-2 text-center bg-success bg-darken-2">
-                                    <i class="ft-arrow-down font-large-2 white"></i>
-                                </div>
-                                <div class="p-2 bg-gradient-x-success white media-body">
-                                    <h5>Low</h5>
-                                    <h5 class="text-bold-400 mb-0"><i class=""></i> 30 (65%)</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <h5 id="inherent">Inherent Risk Rating</h5>
-            <h6>Consequence</h6>
-            <h6 class="subtext">How severe the outcomes be if the risk event occured?</h6>
-            <div class="arrow">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -></div>
-           
-          <div class="flex-container2">
-
-              <div class="arrow2">
-                <div class="flex-container2">
-                  <div><img src="images/arrow2label.png" alt="arrow2label"></div>
-                  <div>
-                      <div class="triangle-up"></div>
-                      <p>|</p>
-                      <p>|</p>
-                      <p>|</p>
-                      <p>|</p>
-                      <p>|</p>
-                      <p>|</p>
-                      <p>|</p>
-                      <p>|</p>
-                      <p>|</p>
-                      <p>|</p>
-                      <p>|</p>
-                      <p>|</p>
-                      <p>|</p>
-                      <p>|</p>
-                      <p>|</p>
-                      <p>|</p>
-                      <p>|</p>
-                      <p>|</p>
-                      <p>|</p>
-                      <p>|</p>
-                      <p>|</p>
-                      <p>|</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="divTable blueTable">
-                  <div class="divTableHeading">
-                  <div class="divTableRow">
-                  <div class="divTableHead grayCell blankCell"></div>
-                  <div class="divTableHead grayCell">Insignificant 1</div>
-                  <div class="divTableHead grayCell">Consequence 2</div>
-                  <div class="divTableHead grayCell">Significant 3<span>&nbsp;&nbsp;</span></div>
-                  <div class="divTableHead grayCell">Major 4<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-                  <div class="divTableHead grayCell">Severe 5<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-                  </div>
-                  </div>
-                  
-                  <div class="divTableBody">
-                        <div class="divTableRow">
-                        <div class="divTableCell grayCell">Almost Certain 5</div><div class="divTableCell">Medium 5</div><div class="divTableCell yellowCell">High 10</div><div class="divTableCell redCell2">Very High 15</div><div class="divTableCell redCell">EXTREME 20</div><div class="divTableCell redCell">EXTREME 25</div></div>
-                        <div class="divTableRow">
-                        <div class="divTableCell grayCell">Likely 4</div><div class="divTableCell">Medium 4</div><div class="divTableCell">Medium 8</div><div class="divTableCell yellowCell">High 12</div><div class="divTableCell redCell2">Very High 16</div><div class="divTableCell redCell">EXTREME 20</div></div>
-                        <div class="divTableRow">
-                        <div class="divTableCell grayCell">Moderate 3</div><div class="divTableCell greenCell2">Low 3</div><div class="divTableCell">Medium 6</div><div class="divTableCell">Medium 9</div><div class="divTableCell yellowCell">High 12</div><div class="divTableCell redCell2">Very High 15</div></div>
-                        <div class="divTableRow">
-                        <div class="divTableCell grayCell">Unlikely 2</div><div class="divTableCell greenCell">VERY Low 4</div><div class="divTableCell greenCell2">Low 6</div><div class="divTableCell">Medium 10</div><div class="divTableCell">Medium 12</div><div class="divTableCell">High 10</div></div>
-                        <div class="divTableRow">
-                        <div class="divTableCell grayCell">Rare 1</div><div class="divTableCell greenCell">VERY LOW 1</div><div class="divTableCell greenCell">Very Low 2</div><div class="divTableCell greenCell2">Low 3</div><div class="divTableCell">Medium 4</div><div class="divTableCell">Medium 5</div></div>
-                  </div>
-                  
-              </div>
-
-           </div>
-            
-            
-
-
-            <h5 id="residual">Residual Risk Rating</h5>
-            <h6>Consequence</h6>
-            <h6 class="subtext">How severe the outcomes be if the risk event occured?</h6>
-            <div class="arrow">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -></div>
-           
-          <div class="flex-container2">
-
-              <div class="arrow2">
-                  <div class="flex-container2">
-                    <div><img src="images/arrow2label.png" alt="arrow2label"></div>
-                    <div>
-                        <div class="triangle-up"></div>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                    </div>
-                  </div>
-                </div>
-
-              <div class="divTable blueTable">
-                <div class="divTableHeading">
-                <div class="divTableRow">
-                    <div class="divTableHead grayCell blankCell"></div>
-                    <div class="divTableHead grayCell">Insignificant 1</div>
-                    <div class="divTableHead grayCell">Consequence 2</div>
-                    <div class="divTableHead grayCell">Significant 3<span>&nbsp;&nbsp;</span></div>
-                    <div class="divTableHead grayCell">Major 4<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-                    <div class="divTableHead grayCell">Severe 5<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-                </div>
-                </div>
-
-                  <div class="divTableBody">
-                        <div class="divTableRow">
-                        <div class="divTableCell grayCell">Almost Certain 5</div><div class="divTableCell">Medium 5</div><div class="divTableCell yellowCell">High 10</div><div class="divTableCell redCell2">Very High 15</div><div class="divTableCell redCell">EXTREME 20</div><div class="divTableCell redCell">EXTREME 25</div></div>
-                        <div class="divTableRow">
-                        <div class="divTableCell grayCell">Likely 4</div><div class="divTableCell">Medium 4</div><div class="divTableCell">Medium 8</div><div class="divTableCell yellowCell">High 12</div><div class="divTableCell redCell2">Very High 16</div><div class="divTableCell redCell">EXTREME 20</div></div>
-                        <div class="divTableRow">
-                        <div class="divTableCell grayCell">Moderate 3</div><div class="divTableCell greenCell2">Low 3</div><div class="divTableCell">Medium 6</div><div class="divTableCell">Medium 9</div><div class="divTableCell yellowCell">High 12</div><div class="divTableCell redCell2">Very High 15</div></div>
-                        <div class="divTableRow">
-                        <div class="divTableCell grayCell">Unlikely 2</div><div class="divTableCell greenCell">VERY Low 4</div><div class="divTableCell greenCell2">Low 6</div><div class="divTableCell">Medium 10</div><div class="divTableCell">Medium 12</div><div class="divTableCell">High 10</div></div>
-                        <div class="divTableRow">
-                        <div class="divTableCell grayCell">Rare 1</div><div class="divTableCell greenCell">VERY LOW 1</div><div class="divTableCell greenCell">Very Low 2</div><div class="divTableCell greenCell2">Low 3</div><div class="divTableCell">Medium 4</div><div class="divTableCell">Medium 5</div></div>
-                </div>
-                
-              </div>
-          
-          </div>
-
-
-        </div>
+      <div class="my-container">
       
-            
+      </div>
     </div>
-
-
-    <div class="myGrid-div2">
-        <h4>Audit Entities</h4>
-        <!-- Tab links -->
-        <div class="tab">
-            
-                  <button class="tablinks active" onclick="openCity(event, 'summary2')">Summary</button>
-                  <button class="tablinks" onclick="openCity(event, 'risk-reg2')">List</button>
-              
-          </div>
-          
-          <!-- Tab content -->
-          <div id="risk-reg2" class="tabcontent">
-              <div id="myGrid2" style="height: 600px; width:100%;" class="ag-theme-balham"></div>
-          </div>
-          
-          <div id="summary2" class="tabcontent" style="display:block">
-                  <p>No Data</p>
-           </div>
-            
-    </div>
-
-
-    <div class="risk-table-div">
-      <h1 class="app-top-heading">Risk Control Matrix - Risk Register</h1>
-     
-      <div class="tab">
-          
-                <button class="tablinks active" onclick="openCity(event, 'summary3')">Summary</button>
-                <button class="tablinks" onclick="openCity(event, 'matrix3')">Matrix</button>
-                <button class="tablinks" onclick="openCity(event, 'impact-scale')">Impact Scale</button>
-                <button class="tablinks" onclick="openCity(event, 'likelihood-scale')">Likelihood Scale</button>
-        </div>
-        
-        <div id="summary3" class="tabcontent" style="display:block">
-          <p>No Data</p>
-        </div>  
-
-        <div id="matrix3" class="tabcontent">
-            <h5>Definition of Risk Levels</h5>
-            <div id="detail-table" class="divTable blueTable">
-                <div class="divTableHeading">
-                <div class="divTableRow">
-                <div class="divTableHead grayCell blankCell"></div>
-                <div class="divTableHead grayCell">Risk<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-                <div class="divTableHead grayCell">Scale<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-                <div class="divTableHead grayCell">Detail</div>
-                </div>
-                </div>
-                
-                <div class="divTableBody">
-                <div class="divTableRow">
-                <div class="divTableCell grayCell blankCell"></div><div class="divTableCell greenCell">VERY LOW</div><div class="divTableCell grayCell">>=1-2</div><div class="divTableCell grayCell">Acceptable risk. The service can be used with the identified threats, but the
-                    threats must be observed to discover changes that could increase the risk level.</div></div>
-                <div class="divTableRow">
-                <div class="divTableCell grayCell blankCell"></div><div class="divTableCell greenCell2">Low</div><div class="divTableCell grayCell">>=3-4</div><div class="divTableCell grayCell">Acceptable risk. The service can be used with the identified threats, but the
-                    threats must be observed to discover changes that could increase the risk level.</div></div>
-                <div class="divTableRow">
-                <div class="divTableCell grayCell blankCell"></div><div class="divTableCell">Medium</div><div class="divTableCell grayCell">>=4-9</div><div class="divTableCell grayCell">The risk can be acceptable for this service, but for each threat the development
-                    of the risk must be monitored on a regular basis, with a following consideration
-                    whether necessary measures have to be implemented.</div></div>
-                <div class="divTableRow">
-                <div class="divTableCell grayCell blankCell"></div><div class="divTableCell yellowCell">High</div><div class="divTableCell grayCell">>=10-12</div><div class="divTableCell grayCell">Not acceptable risk. Can not start using the service before risk reducing
-                    treatment has been implemented. </div></div>
-                <div class="divTableRow">
-                <div class="divTableCell grayCell blankCell"></div><div class="divTableCell redCell">VERY High</div><div class="divTableCell grayCell">>=15-16</div><div class="divTableCell grayCell">Not acceptable risk. Can not start using the service before risk reducing
-                    treatment has been implemented. </div></div>
-                <div class="divTableRow">
-                <div class="divTableCell grayCell blankCell"></div><div class="divTableCell redCell2">EXTREME</div><div class="divTableCell grayCell">>=20-25</div><div class="divTableCell grayCell">Not acceptable risk. Can not start using the service before risk reducing
-                        treatment has been implemented. </div></div>
-                </div>
-                
-            </div>
-            <br>
-            <h5>Risk Matrix 5 X 5</h5>
-            <h6>Consequence</h6>
-            <h6 class="subtext">How severe the outcomes be if the risk event occured?</h6>
-            <div class="arrow">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -></div>
-           
-          <div class="flex-container2">
-
-              <div class="arrow2">
-                  <div class="flex-container2">
-                    <div><img src="images/arrow2label.png" alt="arrow2label"></div>
-                    <div>
-                        <div class="triangle-up"></div>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                        <p>|</p>
-                    </div>
-                  </div>
-                </div>
-
-              <div class="divTable blueTable">
-                <div class="divTableHeading">
-                <div class="divTableRow">
-                    <div class="divTableHead grayCell blankCell"></div>
-                    <div class="divTableHead grayCell">Insignificant 1</div>
-                    <div class="divTableHead grayCell">Consequence 2</div>
-                    <div class="divTableHead grayCell">Significant 3<span>&nbsp;&nbsp;</span></div>
-                    <div class="divTableHead grayCell">Major 4<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-                    <div class="divTableHead grayCell">Severe 5<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-                </div>
-                </div>
-
-                  <div class="divTableBody">
-                        <div class="divTableRow">
-                        <div class="divTableCell grayCell">Almost Certain 5</div><div class="divTableCell">Medium 5</div><div class="divTableCell yellowCell">High 10</div><div class="divTableCell redCell2">Very High 15</div><div class="divTableCell redCell">EXTREME 20</div><div class="divTableCell redCell">EXTREME 25</div></div>
-                        <div class="divTableRow">
-                        <div class="divTableCell grayCell">Likely 4</div><div class="divTableCell">Medium 4</div><div class="divTableCell">Medium 8</div><div class="divTableCell yellowCell">High 12</div><div class="divTableCell redCell2">Very High 16</div><div class="divTableCell redCell">EXTREME 20</div></div>
-                        <div class="divTableRow">
-                        <div class="divTableCell grayCell">Moderate 3</div><div class="divTableCell greenCell2">Low 3</div><div class="divTableCell">Medium 6</div><div class="divTableCell">Medium 9</div><div class="divTableCell yellowCell">High 12</div><div class="divTableCell redCell2">Very High 15</div></div>
-                        <div class="divTableRow">
-                        <div class="divTableCell grayCell">Unlikely 2</div><div class="divTableCell greenCell">VERY Low 2</div><div class="divTableCell greenCell2">Low 4</div><div class="divTableCell">Medium 6</div><div class="divTableCell">Medium 8</div><div class="divTableCell">High 10</div></div>
-                        <div class="divTableRow">
-                        <div class="divTableCell grayCell">Rare 1</div><div class="divTableCell greenCell">VERY LOW 1</div><div class="divTableCell greenCell">Very Low 2</div><div class="divTableCell greenCell2">Low 3</div><div class="divTableCell">Medium 4</div><div class="divTableCell">Medium 5</div></div>
-                </div>
-            </div>
-        </div>
-      </div>
-
-         <div id="impact-scale" class="tabcontent">
-            <h5><strong>Illustrative Consequence Rating Scale</strong> (Last updated 15-Nov-2018 by Mansoor Khan)</h5>
-            <div id="detail-table" class="divTable blueTable">
-                <div class="divTableHeading">
-                <div class="divTableRow">
-                <div class="divTableHead2 grayCell blankCell"></div>
-                <div class="divTableHead2 grayCell">Consequence Rating<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-                <div class="divTableHead2 grayCell">Financial Impact<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-                <div class="divTableHead2 grayCell">People Effects</div>
-                <div class="divTableHead2 grayCell">Reputation</div>
-                <div class="divTableHead2 grayCell">Service Outputs</div>
-                <div class="divTableHead2 grayCell">Legal & Compliance</div>
-                <div class="divTableHead2 grayCell">Management Impact</div>
-                </div>
-                </div>
-                
-                <div class="divTableBody">
-                <div class="divTableRow">
-                <div class="divTableCell grayCell blankCell"></div><div class="divTableCell grayCell">5</div><div class="divTableCell grayCell">&gt;$3m</div><div class="divTableCell grayCell">One or more fatalities or severe irreversible disability to one or more people </div><div class="divTableCell grayCell">National media coverage; Significant impact on funding  for several years; long-term loss of clients </div><div class="divTableCell grayCell">Total cessation of multiple services for many months</div><div class="divTableCell grayCell">Major litigation costing $>3m; Investigation by regulatory body resulting in long term interruption of operations</div><div class="divTableCell grayCell">Restructuring of organisation with loss of many senior managers </div></div>
-                <div class="divTableRow">
-                <div class="divTableCell grayCell blankCell"></div><div class="divTableCell grayCell">4</div><div class="divTableCell grayCell">$1m - $3m</div><div class="divTableCell grayCell">Extensive injury or impairment to one or more persons</div><div class="divTableCell grayCell">State media coverage; CEO departs affecting funding or causing loss of clients for many months</div><div class="divTableCell grayCell">Disruption of multiple services for several months</div><div class="divTableCell grayCell">Major breach of regulation with punitive fine, and significant litigation involving many weeks of senior management time and up to $3m legal costs</div><div class="divTableCell grayCell">Significant disruption that will require considerable senior management time over several weeks </div></div>
-                <div class="divTableRow">
-                    <div class="divTableCell grayCell blankCell"></div><div class="divTableCell grayCell">3</div><div class="divTableCell grayCell">$300k - $999k</div><div class="divTableCell grayCell">Short term disability to one or more persons</div><div class="divTableCell grayCell">Local media coverage over several days; senior managers depart; noticeable loss of clients for many months</div><div class="divTableCell grayCell">Total cessation of one service for a few months</div><div class="divTableCell grayCell">Breach of regulation with investigation by authority and possible moderate fine, and litigation and legal costs up to $999k</div><div class="divTableCell grayCell">Disruption that will require senior management time over several weeks </div></div>
-                <div class="divTableRow">
-                    <div class="divTableCell grayCell blankCell"></div><div class="divTableCell grayCell">2</div><div class="divTableCell grayCell">$10k - $299k</div><div class="divTableCell grayCell">Significant medical treatment; lost injury time &lt;2 weeks</div><div class="divTableCell grayCell">Local media coverage, and complaint to management</div><div class="divTableCell grayCell">Some service disruption in the area</div><div class="divTableCell grayCell">Breach of regulations; major fine or legal costs; minor litigation</div><div class="divTableCell grayCell">Will require some senior management time over many days </div></div>
-                <div class="divTableRow">
-                    <div class="divTableCell grayCell blankCell"></div><div class="divTableCell grayCell">1</div><div class="divTableCell grayCell">&lt;$10k</div><div class="divTableCell grayCell">First aid or minor medical treatment</div><div class="divTableCell grayCell">No media coverage; complaint to employee</div><div class="divTableCell grayCell">Minimal disruption</div><div class="divTableCell grayCell">Minor legal issues or breach of regulations</div><div class="divTableCell grayCell">Will require some management attention over several days</div></div>
-                
-                </div>
-                
-            </div>
-          
-        </div>
-          
-
-        <div id="likelihood-scale" class="tabcontent">
-          <h5><strong>Illustrative Likelihood Rating/Scale</strong> (Last updated 15-Nov-2018 by Mansoor Khan)</h5>
-          <table class="hoverTable table">
-              <thead>
-                  <tr>
-                    <th>Rating</th>
-                    <th>Descriptor</th>
-                    <th>Definition</th>
-                    <th>Probability</th>
-                    <th>Indicative Frequency</th>
-                  </tr>
-              </thead>
-            <tbody>
-                <tr>
-                    <td>5</td><td>Almost certain</td><td>The consequence is expected to occur on an annual basis </td><td>Every year or more frequently</td><td><div class="i-f">90-100%</div><a href="#"><i class="fa fa-edit"></i></a></td>
-                  </tr>
-                  <tr>
-                    <td>4</td><td>Likely</td><td>The event has occurred several times or more throughout history of the organization</td><td>Every three years</td><td><div class="i-f">50-90%</div><a href="#"><i class="fa fa-edit"></i></a></td>
-                  </tr>
-                  <tr>
-                    <td>3</td><td>Possible</td><td>The event might occur once in the organization</td><td>Every ten years</td><td><div class="i-f">10-50%</div><a href="#"><i class="fa fa-edit"></i></a></td>
-                  </tr>
-                  <tr>
-                      <td>2</td><td>Unlikely</td><td>The event does occur from time to time</td><td>Every thirty years</td><td><div class="i-f">0%</div><a href="#"><i class="fa fa-edit"></i></a></td>
-                  </tr>
-                  <tr>
-                      <td>1</td><td>Very Unlikely</td><td>Heard of something like that occurring elsewhere</td><td>Every 100 years</td><td><div class="i-f">0%</div><a href="#"><i class="fa fa-edit"></i></a></td>
-                  </tr>
-            </tbody>
-            
-          </table>
-          
-        </div>
-              
-      </div>
-
-      <div class="preference-factors-div">
-          <h1 class="app-top-heading">Preference Assessment - Factors</h1>
-        
-        <div class="tab">
-         <div class="flex-container">
-          <div class="item1">
-              <button class="tablinks active" onclick="openCity(event, 'summary4')">Summary</button>
-              <button class="tablinks" onclick="openCity(event, 'list4')">List</button>
-          </div>
-
-          <div class="item2">
-              <button class="tab-links"><a href="add-new-factor.html">Add New</a></button>
-          </div>
-         </div>
-        </div>
-          
-          <div id="summary4" class="tabcontent" style="display: block;">
-            <p>No Data is Available.</p>
-          </div>
-
-          <div id="list4" class="tabcontent">
-              <div class="factors-table-div">
-                  
-                  <table class="hoverTable table">
-                    <thead>
-                        <tr>
-                          <th>Title</th>
-                          <th>Status</th>
-                          <th>Levels</th>
-                          <th>Used in</th>
-                          <th>Last Updated</th>
-                          <th>Update by</th>
-                        </tr>
-                    </thead>
-                  <tbody>
-                      <tr>
-                          <td><strong>Money Volume:</strong> Large amounts involved either flowing through a system or budgeted to an activity, process and/or department, increase audit interest…</td>
-                          <td>Active</td>
-                          <td>5</td>
-                          <td class="assessment-cell">1 Assessment</td>
-                          <td>25/11/2015</td>
-                          <td>M Ajmal</td>
-                        </tr>
-                        <tr>
-                          <td><strong>Public Disclosure and reputation:</strong> The prospect of the authority and public for the Organization  and the effect of significant adverse disrepute, as a consequence …</td>
-                          <td>Active</td>
-                          <td>5</td>
-                          <td class="assessment-cell">4 Assessment</td>
-                          <td>16/05/2015</td>
-                          <td>Zeeshan Mujahid</td>
-                        </tr>
-                        <tr>
-                          <td><strong>Strategic Plan:</strong> Areas related directly to the Organization Strategic Plan 2020 increase audit interest.</td>
-                          <td>Active</td>
-                          <td>5</td>
-                          <td class="assessment-cell">1 Assessment</td>
-                          <td>26/08/2015</td>
-                          <td>Sufian Khalid</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Executive Management Interest:</strong> Expressed or implied concern relating to a department, process or area by senior management increases audit interest.</td>
-                            <td>Active</td>
-                            <td>5</td>
-                            <td class="assessment-cell">3 Assessment</td>
-                            <td>18/05/2015</td>
-                            <td>Sheikh Zain Mazhar</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Internal Control:</strong> The design of an internal control system is important in judging the probability of errors in the system. Areas with weak internal control are of…</td>
-                            <td>Active</td>
-                            <td>5</td>
-                            <td class="assessment-cell">No Used</td>
-                            <td>23/11/2015</td>
-                            <td>Dr Wasim Sajjad</td>
-                        </tr>
-                        <tr>
-                          <td><strong>Result of prior audit:</strong> Significant findings in a prior audit increase audit interest.</td>
-                          <td>Active</td>
-                          <td>5</td>
-                          <td class="assessment-cell">3 Assessment</td>
-                          <td>26/04/2015</td>
-                          <td>M Fayyaz-ud-Din Chughtai</td>
-                        </tr>
-                      <tr>
-                        <td><strong>Complexity of activity:</strong> If operating complexity of an area is relatively high, information and control systems tend to become more complex.  This complexity…</td>
-                        <td>Inactive</td>
-                        <td>5</td>
-                        <td class="assessment-cell">1 Assessment</td>
-                        <td>26/04/2015</td>
-                        <td>Muhammad Safdar</td>
-                      </tr>
-                     <tr>
-                      <td><strong>Time since last audit:</strong> As the time since the last audit lengthens, the value of a new audit is likely to increase.</td>
-                      <td>Active</td>
-                      <td>5</td>
-                      <td class="assessment-cell">2 Assessment</td>
-                      <td>11/06/2015</td>
-                      <td>Muhammad Saleem</td>
-                    </tr>
-                     <tr>
-                        <td><strong>Deviation from Budget plan:</strong> Significant unfavorable deviation from established budget and plans increase audit interest.</td>
-                        <td>Active</td>
-                        <td>5</td>
-                        <td class="assessment-cell">1 Assessment</td>
-                        <td>15/06/2015</td>
-                        <td>Aftab Ahmed</td>
-                      </tr>
-                      <tr>
-                        <td><strong>Management Control Environment: </strong>Assessment of control environment should be based on factors such as the adequacy of the existing control structure …</td>
-                        <td>Active</td>
-                        <td>5</td>
-                        <td class="assessment-cell">Not Used</td>
-                        <td>26/07/2015</td>
-                        <td>Zeshan Arshad</td>
-                      </tr>
-                     <tr>
-                        <td><strong>Business Exposure:</strong> Larger potential losses are normally associated with larger sized activities, as indicated by revenues and expenditures. Other things being …</td>
-                        <td>Active</td>
-                        <td>5</td>
-                        <td class="assessment-cell">1 Assessment</td>
-                        <td>16/08/2015</td>
-                        <td>Ehsan Ali</td>
-                      </tr>
-                     <tr>
-                      <td><strong>Public and Political Sensitivity:</strong> A public relations exposure exists whenever an event occurs which would erode public confidence in the Organization… </td>
-                      <td>Active</td>
-                      <td>5</td>
-                      <td class="assessment-cell">2 Assessment</td>
-                      <td>23/08/2015</td>
-                      <td>Fasih Niaz</td>
-                    </tr>
-                    <tr>
-                      <td><strong>Compliance Requirements:</strong> Compliance requirements address all internal and external policy, procedure, regulatory, and statutory matters affecting the …</td>
-                      <td>Active</td>
-                      <td>5</td>
-                      <td class="assessment-cell">1 Assessment</td>
-                      <td>14/07/2015</td>
-                      <td>M Ajmal</td>
-                    </tr>
-                   <tr>
-                    <td><strong>Information & Reporting:</strong> Information is needed at all levels of an organization to run the business, and move toward achievement of the entity’s objectives in all …</td>
-                    <td>Active</td>
-                    <td>5</td>
-                    <td class="assessment-cell">3 Assessment</td>
-                    <td>02/08/2015</td>
-                    <td>Zeeshan Mujahid</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Organizational Change/Growth:</strong> : A function's existing and future operations can influence risk. Changes in management personnel or structure influence risk…</td>
-                    <td>Active</td>
-                    <td>5</td>
-                    <td class="assessment-cell">1 Assessment</td>
-                    <td>25/11/2015</td>
-                    <td>Sufian Khalid</td>
-                  </tr>
-                 
-                  </tbody>
-                  
-                </table>
-           </div>
-          </div>
-      </div>
   </div>
   <!-- ////////////////////////////////////////////////////////////////////////////-->
   <footer class="footer footer-static footer-light navbar-border">
@@ -1263,34 +731,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>
     $(document).ready(function(){
-      $("#risk-table").click(function(){
-        $(".myGrid-div").show();
-        $(".myGrid-div2").hide();
-        $(".risk-table-div").hide();
-        $(".preference-factors-div").hide();
-        $("footer").show();
-      });
-      $("#aud").click(function(){
-        $(".myGrid-div2").show();
-        $(".myGrid-div").hide();
-        $(".risk-table-div").hide();
-        $(".preference-factors-div").hide();
-        $("footer").show();
-      });
-      $("#risk-matrix").click(function(){
-        $(".myGrid-div2").hide();
-        $(".myGrid-div").hide();
-        $(".risk-table-div").show();
-        $(".preference-factors-div").hide();
-        $("footer").show();
-      });
-      $('#factors').click(function(){
-        $(".preference-factors-div").show();
-        $(".myGrid-div").hide();
-        $(".myGrid-div2").hide();
-        $(".risk-table-div").hide();
-        $("footer").show();
-      });
+      
     });
   </script>
   <!-- BEGIN VENDOR JS-->
@@ -1340,7 +781,6 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                       'yellow2': "x == 'Medium'",
                       'redCell': "x == 'Very High'",
                       'redCell2': "x == 'Extreme'"
-
                     }
                 },
                ], field: "ir", width: 200},
